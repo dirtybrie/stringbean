@@ -4,15 +4,19 @@
 A simple random string generator
 
 # Usage
-Stringbean is a python script<br/>
+Stringbean is a python3 script<br/>
+you should have any version after 3.6
 you can run it by:<br/>
 
 ```bash
-# From github
-$./stringbean
-$python stringbean
-you can also copy/cut paste it to your bin folder and it will run fine :)
+./stringbean
 ```
+-or-
+```bash
+python stringbean
+```
+you can also copy/cut paste it to your bin folder and it will run fine :)
+
 You have to give give it 2 arguments and they must be integers.
 The first argument is the length of the text
 The second argument is how many lines per text file
@@ -20,9 +24,9 @@ stringbean will ask you what the file name will be
 stringbean will create a directory in Documents called stringbean
 and put your file there.
 
-ex:                    descrition:
-stringbean 8 10000   | 8 letters, 10000 lines
-string bean 13 300   | 13 letters, 300 lines
+ex:                    descrition:<br/>
+stringbean 8 10000   | 8 letters, 10000 lines<br/>
+string bean 13 300   | 13 letters, 300 lines<br/>
 
 This is for linux distro's only
 I'll have to throw in some exceptions for OS detection later
