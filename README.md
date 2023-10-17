@@ -55,7 +55,7 @@ The strings by default consist of uppercase;lowercase characters and numbers onl
 (Since thats how most hotspots generate their passwords)
 
 If for some reason you do not have a Documents in your User directory
-This program will through an error. Just make one
+This program will throwback an error. Just make one
 or edit the script for it to go somewhere else.
 
 Just FYI the file stringbean writes to is in append mode so as long
