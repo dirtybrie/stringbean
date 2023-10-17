@@ -97,11 +97,11 @@ Very doable, any script can be manipulated. getting it to work is another thing.
 Fortunately this is a very basic script and I made it even easier for manipulation.</br>
 Go head and pull up the code of stringbean while your reading.
 
-Ok so our variables between line 22-40 is commented as the ASCII Table.
+Ok so our variables between line 23-41 is commented as the ASCII Table.
 If you don't know what ASCII is, it's just a fancy way of saying letters, numbers and punctuation.
 Say you want more than just uppercase/lowercase letters and numbers
 you want to throw in special characters as well. To do so, you would
-swap **charnumb** in line 143 (if your using Linux, line 159 for Windows) which is:<br/>
+swap **charnumb** in line 144 (if your using Linux, line 160 for Windows) which is:<br/>
 ```
 stringbean = random_string_generator(args.strlen, charnumb)<br/>
 ```
