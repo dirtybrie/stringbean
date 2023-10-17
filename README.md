@@ -1,11 +1,18 @@
 # stringbean
-![alt text](https://github.com/dirtybrie/stringbean/blob/%7Bdirt%7D/img/stringbean.png?raw=true)
-
+![stringbean.png](https://github.com/dirtybrie/stringbean/blob/%7Bdirt%7D/img/stringbean.png)
+<!--?raw=true-->
 A simple random string generator
 
 > stringbean is a python3 script<br/>
 > Compatable with any version after python3.4<br/>
-> Works for Linux & Windows (posix & nt)<br/>
+> Works for POSIX-compliant OS and NTFS (Linux/Mac, Windows)<br/>
+
+> [!IMPORTANT]
+> I have not tested stringbean on Mac yet, however macOS's core is a
+> POSIX-compliant operating system so the exceptions in this code should still follow through.
+> gnu/linux is based off of unix, Not to be construed as the same but the commands are similar
+> and files are structured the same way. So there shouldn't be an issue as long as you have python3 intalled on your Mac.<br/>
+> Just follow the same instructions for Linux below.
 
 ## __TO RUN IT:__
 ### LINUX
@@ -22,7 +29,7 @@ python stringbean
 py stringbean
 ```
 For linux you can also copy/cut paste it to your bin folder and it will run fine :)
-
+ 
 ### COMMANDS
 * __You have to give give it 2 arguments and they must be integers__.
 * The first argument is the length of the text
@@ -54,9 +61,10 @@ strings to a file with a length and line limit of your chosing.
 The strings by default consist of uppercase;lowercase characters and numbers only.
 (Since thats how most hotspots generate their passwords)
 
-If for some reason you do not have a Documents in your User directory
-This program will throwback an error. Just make one
-or edit the script for it to go somewhere else.
+> [!WARNING]
+> If for some reason you do not have the Documents folder in your User directory
+> This program will throwback an error. Just make one
+> or edit the script for it to go somewhere else.
 
 Just FYI the file stringbean writes to is in append mode so as long
 as the name you give the .txt file remains the same and is in the
