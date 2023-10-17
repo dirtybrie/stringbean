@@ -1,20 +1,22 @@
 #! /usr/bin/python3
 
 # STRINGBEAN v 0.01
-# copyright 2023, by Dirty Brie
-# licensed under:
+# by Dirty Brie
 # GNU GENERAL PUBLIC LICENSE v3.0
 
 import random
 import string
 import argparse
-import os
 import getpass
 import sys
+import os
 os.getcwd()
+
 user = getpass.getuser()
 path = f"/home/{user}/Documents/stringbean"
+winpath = f"C:\\Users\\{user}\\Documents\\stringbean"
 chk_path = f"/home/{user}/Documents"
+win_chkpath = f"C:\\Users\\{user}\\Documents"
 
 # ASCII TABLE
 char = string.ascii_letters
@@ -83,7 +85,7 @@ class checkdir(object):
 	def __init__(self):
 		pass
 
-	def chkdirs(self, chkpath):
+	def chkdir(self, chkpath):
 		user = getpass.getuser()
 		if not os.path.isdir(chkpath):
 			print(f"stringbean needs a Documents directory in /home/{user}")
@@ -98,17 +100,40 @@ class checkdir(object):
 		elif os.path.isdir(path):
 			return
 
+	def win_chkdir(self, chkpath):
+		user = getpass.getuser()
+		if not os.path.isdir(win_chkpath):
+			print(f"stringbean needs a Documents directory in C:\\Users\\{user}")
+			sys.exit(1)
+		else:
+			return
+
+	def win_mkdir(self, path):
+		if not os.path.isdir(path):
+			os.mkdir(winpath)
+			print(f"Creating Directory: C:\\Users\\{user}\\Documents\\stringbean")
+		elif os.path.isdir(path):
+			return
+
+	def chk_os(self):
+		if os.name == "nt":
+			return 2
+		elif os.name == "posix":
+			return 1
+		else:
+			print("incompatable OS. sorry...")
+			
 class strgen(object):
 	def __init__(self, strlen=False, lstlen=False):
 		self.strlen = strlen
 		self.lstlen = lstlen
-
+		
 	def spitrun(self):
 		if args.strlen < str_limit and args.lstlen < lst_limit:
 			count = 0
 			filename = input("Enter the name you want the file to be: ")
 			while count != args.lstlen:
-				# Here you can swap charnumb with one of variables at the ASCII Table (lines -56)
+				# FOR LINUX Here you can swap charnumb with one of variables at the ASCII Table (lines 45-56)
 				stringbean = random_string_generator(args.strlen, charnumb)
 				output = stringbean + "\n"
 				with open(f"/home/{user}/Documents/stringbean/{filename}.txt", "a+") as text_file:
@@ -116,6 +141,22 @@ class strgen(object):
 				count += 1
 			banners.str_machine()
 			print(f"Output file: /home/user/stringbean/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		else:
+			print("Invalid Entry... \nQUITING!!!")
+	def win_spitrun(self):
+		if args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("Enter the name you want the file to be: ")
+			while count != args.lstlen:
+				# FOR WINDOWS Here you can swap charnumb with one of variables at the ASCII Table (lines 45-56)
+				stringbean = random_string_generator(args.strlen, charnumb)
+				output = stringbean + "\n"
+				with open(f"C:\\Users\\{user}\\Documents\\stringbean\\{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"Output file: C:\\Users\\{user}\\stringbean\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			return
 		else:
 			print("Invalid Entry... \nQUITING!!!")
@@ -130,8 +171,14 @@ if __name__ == '__main__':
 		banners.help_sb()
 	else:
 		checkdir = checkdir()
-		checkdir.chkdirs(chk_path)
-		checkdir.mkdir(path)
-		strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
-		strgen.spitrun()
-		
+		checkdir.chk_os()
+		if checkdir.chk_os() == 1:
+			checkdir.chkdir(chk_path)
+			checkdir.mkdir(path)
+			strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+			strgen.spitrun()
+		elif checkdir.chk_os() == 2:
+			checkdir.win_chkdir(win_chkpath)
+			checkdir.win_mkdir(winpath)
+			strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+			strgen.win_spitrun()
