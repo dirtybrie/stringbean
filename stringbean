@@ -132,7 +132,7 @@ class strgen(object):
 			count = 0
 			filename = input("Enter the name you want the file to be: ")
 			while count != args.lstlen:
-				# FOR LINUX Here you can swap charnumb with one of variables at the ASCII Table (lines 45-56)
+				# FOR LINUX Here you can swap charnumb with one of variables at the ASCII Table (lines 22-33)
 				stringbean = random_string_generator(args.strlen, charnumb)
 				output = stringbean + "\n"
 				with open(f"/home/{user}/Documents/stringbean/{filename}.txt", "a+") as text_file:
@@ -148,7 +148,7 @@ class strgen(object):
 			count = 0
 			filename = input("Enter the name you want the file to be: ")
 			while count != args.lstlen:
-				# FOR WINDOWS Here you can swap charnumb with one of variables at the ASCII Table (lines 45-56)
+				# FOR WINDOWS Here you can swap charnumb with one of variables at the ASCII Table (lines 22-33)
 				stringbean = random_string_generator(args.strlen, charnumb)
 				output = stringbean + "\n"
 				with open(f"C:\\Users\\{user}\\Documents\\stringbean\\{filename}.txt", "a+") as text_file:
