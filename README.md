@@ -87,5 +87,5 @@ If you just want numbers you'd swap it with numb, etc,etc...<br/>
 You can also alter the limit for text length and lines in a file
 by changing the values of the str_limit and lst_limit.
 
-> Tips for me on better programming? Contact me ;).
+> Tips for me on better programming? Contact me ;)
 
