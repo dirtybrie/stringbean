@@ -4,6 +4,7 @@
 # by Dirty Brie
 # licensed under the:
 # GNU GENERAL PUBLIC LICENSE v3.0
+# copyright; 10/16/2023
 
 import random
 import string
