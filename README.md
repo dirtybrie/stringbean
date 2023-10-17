@@ -6,6 +6,7 @@ A simple random string generator
 ## Usage
 > Stringbean is a python3 script<br/>
 > you should have any version after 3.6<br/>
+> This is for linux distro's only I'll have to throw in some exceptions for OS detection later<br/>
 
 you can run it by:<br/>
 
@@ -28,9 +29,6 @@ You can also copy/cut paste it to your bin folder and it will run fine :)
 | --- | --- |
 |stringbean 8 10000 | generate a random text with the length of 8, 10000 times |
 |stringbean 13 300 | generate a random text with the lengtrh of 13, 300 times |
-
-This is for linux distro's only,
-I'll have to throw in some exceptions for OS detection later<br/>
 
 ## Description
 
