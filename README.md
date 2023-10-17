@@ -5,11 +5,11 @@ A simple random string generator
 
 ## Usage
 > Stringbean is a python3 script<br/>
-> you should have any version after 3.6<br/>
-> This is for linux distro's only I'll have to throw in some exceptions for OS detection later<br/>
+> Compatable with any version after python3.4<br/>
+> Works for Linux & Windows (posix & nt)<br/>
 
 you can run it by:<br/>
-
+### LINUX
 ```bash
 sudo chmod +x stringbean
 ./stringbean
@@ -18,7 +18,11 @@ sudo chmod +x stringbean
 ```bash
 python stringbean
 ```
-You can also copy/cut paste it to your bin folder and it will run fine :)
+### WINDOWS
+```
+py stringbean
+```
+For linux you can also copy/cut paste it to your bin folder and it will run fine :)
 
 * __You have to give give it 2 arguments and they must be integers__.
 * The first argument is the length of the text
@@ -66,7 +70,7 @@ Ok so our variables between line 19-30 is declared is the ASCII Table.
 If you don't know what ASCII is, it's just a fancy way of saying letters, numbers and punctuation.<br/>
 Say you want more than just uppercase/lowercase letters and numbers
 you want to through in special characters as well. To do so, you would
-swap **charnumb** in line 112 which is:<br/>
+swap **charnumb** in line 136 if your using Linux, line 152 for Windows which is:<br/>
 
 stringbean = random_string_generator(args.strlen, charnumb)<br/>
 
@@ -75,10 +79,10 @@ with the variable **cns**:<br/>
 stringbean = random_string_generator(args.strlen, cns)<br/>
 
 If you just want numbers you'd swap it with numb, etc,etc...<br/>
-The only thing is you cant just print uppercase or lower case characters<br/>
+The only thing is you cant just print uppercase or lower case characters(for now...)<br/>
 
 You can also alter the limit for text length and lines in a file
-by changing the values of the lst_limit and str_limit.
+by changing the values of the str_limit and lst_limit.
 
 > Tips for me on better programming? Contact me ;).
 
