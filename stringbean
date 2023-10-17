@@ -28,6 +28,7 @@ u_char = string.ascii_uppercase
 l_ char = string.ascii_lowercase
 # you can Obviously tell what that is...
 numb = '0123456789'
+# Special Characters
 spec = string.punctuation
 # Characters and Numbers
 charnumb = char + numb
