@@ -15,13 +15,32 @@ A simple random string generator
 > Just follow the same instructions for Linux below.
 
 ## __TO RUN IT:__
+
+### COMPATABILITY CHECK:
+
+__MAC/LINUX:__
+```python
+python
+import os
+os.name
+```
+If the return is 'posix' you're good to go!<br>
+
+__WINDOWS:__
+```python
+py
+import os
+os.name
+```
+If it returns 'nt' your all set!
+
 ### LINUX
-```bash
+```
 sudo chmod +x stringbean
 ./stringbean
 ```
 -or-
-```bash
+```
 python stringbean
 ```
 ### WINDOWS
