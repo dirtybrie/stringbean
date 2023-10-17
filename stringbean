@@ -1,37 +1,9 @@
 #! /usr/bin/python3
 
 # STRINGBEAN v 0.01
-# by Dirty Brie
+# copyright 2023, by Dirty Brie
+# licensed under:
 # GNU GENERAL PUBLIC LICENSE v3.0
-#
-# This is a random string genorator is geared towards an aid for aircrack-ng 
-# dictionary attacks for hotpot default generated passwords.
-# the success rate I've had is about 34.22% on 82 ATT&T Hotspots, I sh*t you not
-# However the actual 'odds' are very, very devestating for us.
-# 
-# Hotspots, modems and routers a lot of the times come with a default password that 
-# consists of Characters(uppercase & lowercase) and Numbers only. people tend to not
-# change them (suprisingly) and the libraries that give out hotspots tell the recipient 
-# not to change the passwords either.
-# 
-# This program will generate randome strings.
-# The strings consist of uppercase;lowercase characters and numbers only. 
-# To change that, simply swap charnumb at line 138 with one of the variables at the 
-# ASCII Table (Lines 58-69)
-# You can also alter the limit for text length and lines in a file
-# by changing the values of lst_limit and str_limit
-#
-# If for some reason you do not have a Documents directory
-# This program will through an error.
-#
-# Just FYI the file stringbean writes to is in append mode so as long
-# as the name you give the .txt file remains the same and is in the
-# stringbeans directory.
-# stringbean won't overwrite but instead append to it
-# -db
-#
-# Tips for me on better programming? Contact me ;)
-
 
 import random
 import string
@@ -58,7 +30,7 @@ numbspec = numb + spec
 cns = char + numb + spec
 
 # LIMITS
-str_limit = 20
+str_limit = 21
 lst_limit = 200001
 
 class banners():
@@ -136,7 +108,7 @@ class strgen(object):
 			count = 0
 			filename = input("Enter the name you want the file to be: ")
 			while count != args.lstlen:
-				# Here you can swap charnumb with one of variables at the ASCII Table (lines 45-56)
+				# Here you can swap charnumb with one of variables at the ASCII Table (lines -56)
 				stringbean = random_string_generator(args.strlen, charnumb)
 				output = stringbean + "\n"
 				with open(f"/home/{user}/Documents/stringbean/{filename}.txt", "a+") as text_file:
