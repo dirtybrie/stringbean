@@ -53,7 +53,7 @@ For linux you can also copy/cut paste it to your bin folder and it will run fine
 * __You have to give give it 2 arguments and they must be integers__.
 * The first argument is the length of the text
 * The second argument is how many lines per text file
-* stringbean will ask you what the file name will be
+* stringbean detects the OS and prompts you to name the file containing the texts
 * then it will create a directory in Documents called stringbean and put your file there.
 
 | cmd | descriton |
