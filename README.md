@@ -3,9 +3,10 @@
 
 A simple random string generator
 
-# Usage
-Stringbean is a python3 script<br/>
-you should have any version after 3.6
+## Usage
+> Stringbean is a python3 script<br/>
+> you should have any version after 3.6<br/>
+
 you can run it by:<br/>
 
 ```bash
@@ -15,27 +16,28 @@ you can run it by:<br/>
 ```bash
 python stringbean
 ```
-you can also copy/cut paste it to your bin folder and it will run fine :)
+You can also copy/cut paste it to your bin folder and it will run fine :)
 
-You have to give give it 2 arguments and they must be integers.
-The first argument is the length of the text
-The second argument is how many lines per text file
-stringbean will ask you what the file name will be
-stringbean will create a directory in Documents called stringbean
-and put your file there.
+* __You have to give give it 2 arguments and they must be integers__.
+* The first argument is the length of the text
+* The second argument is how many lines per text file
+* stringbean will ask you what the file name will be
+* then it will create a directory in Documents called stringbean and put your file there.
 
-ex:                    descrition:<br/>
-stringbean 8 10000   | 8 letters, 10000 lines<br/>
-string bean 13 300   | 13 letters, 300 lines<br/>
+| cmd | descriton |
+| --- | --- |
+|stringbean 8 10000 | generate a random text with the length of 8, 10000 times |
+|stringbean 13 300 | generate a random text with the lengtrh of 13, 300 times |
 
-This is for linux distro's only
-I'll have to throw in some exceptions for OS detection later
+This is for linux distro's only,
+I'll have to throw in some exceptions for OS detection later<br/>
 
-# Description
+## Description
+
 This is a random string genorator is geared towards an aid for aircrack-ng 
-dictionary attacks for hotpot default generated passwords.
+dictionary attacks for hotspot default generated passwords.
 the success rate I've had is about 34.22% on 82 ATT&T Hotspots, I sh*t you not
-However the actual 'odds' are very, very devestating for us.
+However the actual odds are very, very devestating for us.
  
 Hotspots, modems and routers a lot of the times come with a default password that 
 consists of Characters(uppercase & lowercase) and Numbers only. people tend to not
@@ -43,21 +45,37 @@ change them (suprisingly) and the libraries that give out hotspots tell the reci
 not to change the passwords either.
  
 This program will generate randome strings.
-The strings consist of uppercase;lowercase characters and numbers only. 
-To change that, simply swap charnumb at line 138 with one of the variables at the 
-ASCII Table (Lines 58-69)
-You can also alter the limit for text length and lines in a file
-by changing the values of lst_limit and str_limit
+The strings consist of uppercase;lowercase characters and numbers only.
 
-If for some reason you do not have a Documents directory
+If for some reason you do not have a Documents in your /home/user directory
 This program will through an error. Just make one
 or edit the script for it to go somewhere else
 
 Just FYI the file stringbean writes to is in append mode so as long
 as the name you give the .txt file remains the same and is in the
 stringbeans directory.
-stringbean won't overwrite but instead append to it
+stringbean won't overwrite but instead append to it.
 -db
 
-Tips for me on better programming? Contact me ;)
+## Manipulating The Script
+
+Very doable, any script can be manipulated. getting it to work is another thing<br/>
+Fortunately this is a very basic script and I made it even easier to manipulate</br>
+Go head and pull up the raw script of stringbean while your reading.
+
+Ok so our variables between line 47-58 is declared is the ASCII Table.
+If you don't know what ASCII is, it's just a fancy way of saying letters, numbers and punctuation.<br/>
+Say you want more than just uppercase/lowercase letters and numbers
+you want to through in special characters as well. To do so, you would
+swap **charnumb** in line 140 which is:<br/>
+stringbean = random_string_generator(args.strlen, charnumb)<br/>
+with the variable **cns**.:<br/>
+stringbean = random_string_generator(args.strlen, cns)<br/>
+If you just want numbers you'd swap it with numb, etc,etc...<br/>
+The only thing is you cant just print uppercase or lower case characters<br/>
+
+You can also alter the limit for text length and lines in a file
+by changing the values of the lst_limit and str_limit.
+
+> Tips for me on better programming? Contact me ;).
 
