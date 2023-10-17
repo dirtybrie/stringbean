@@ -69,19 +69,19 @@ class banners():
 	STRINGBEAN v0.02
 	by Dirty Brie
 	****************  
-	_________________________________________________
+	____________________________________________________
 	usage:
-	There must be 2 arguments and
-	both arguments must be integers
-	the First argument is how long the texts will be
-	the Second is how many lines the text file will have
+	2 arguments are required, both arguments must be integers
+
+	the First argument is how long the texts will be.
+	the Second is how many lines the text file will have.
 	The limit for the length: 20
 	the limit for lines: 200,000
 
-	ex:                      output:
-	stringbean 8 1000       | (8 letters, 1000 lines)
-	stingbean 10 300        | (10 letters, 300 lines)
-	__________________________________________________
+	ex:                       description:
+	stringbean 8 1000       | 8 characters, 1000 lines
+	stringbean 10 300       | 10 characters, 300 lines
+	_____________________________________________________
 		''')
 
 def random_string_generator(str_size, allowed_chars):
@@ -165,7 +165,7 @@ class strgen(object):
 			print(f"Output file: C:\\Users\\{user}\\stringbean\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			return
 		else:
-			print("Invalid Entry... \nQUITING!!!")
+			print("Invalid Entry... \nbyeeeee!")
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
