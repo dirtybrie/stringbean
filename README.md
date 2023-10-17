@@ -71,7 +71,7 @@ Fortunately this is a very basic script and I made it even easier for manipulati
 Go head and pull up the code of stringbean while your reading.
 
 Ok so our variables between line 22-40 is commented as the ASCII Table.
-If you don't know what ASCII is, it's just a fancy way of saying letters, numbers and punctuation.<br/>
+If you don't know what ASCII is, it's just a fancy way of saying letters, numbers and punctuation.
 Say you want more than just uppercase/lowercase letters and numbers
 you want to throw in special characters as well. To do so, you would
 swap **charnumb** in line 143 (if your using Linux, line 159 for Windows) which is:<br/>
@@ -83,7 +83,6 @@ with the variable **cns**:<br/>
 stringbean = random_string_generator(args.strlen, cns)<br/>
 ```
 If you just want numbers you'd swap it with numb, etc,etc...<br/>
-The only thing is you cant just print uppercase or lower case characters(for now...)<br/>
 
 You can also alter the limit for text length and lines in a file
 by changing the values of the str_limit and lst_limit.
