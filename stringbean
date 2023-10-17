@@ -74,8 +74,6 @@ class banners():
 	ex:                      output:
 	stringbean 8 1000       | (8 letters, 1000 lines)
 	stingbean 10 300        | (10 letters, 300 lines)
-
-	see the script for more info :)
 	__________________________________________________
 		''')
 
