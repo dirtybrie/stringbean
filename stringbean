@@ -1,6 +1,6 @@
 #! /usr/bin/python3
 
-# STRINGBEAN v 0.01
+# STRINGBEAN v 0.02
 # by Dirty Brie
 # licensed under the:
 # GNU GENERAL PUBLIC LICENSE v3.0
@@ -59,7 +59,7 @@ class banners():
 	
 	def help_sb(self):
 		print('''
-	STRINGBEAN v0.01
+	STRINGBEAN v0.02
 	by Dirty Brie
 	****************  
 	_________________________________________________
