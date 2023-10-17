@@ -11,6 +11,7 @@ A simple random string generator
 you can run it by:<br/>
 
 ```bash
+sudo chmod +x stringbean
 ./stringbean
 ```
 -or-
