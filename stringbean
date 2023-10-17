@@ -21,6 +21,8 @@ win_chkpath = f"C:\\Users\\{user}\\Documents"
 
 # ASCII TABLE
 char = string.ascii_letters
+u_char = string.ascii_uppercase
+l_char = string.ascii_lowercase
 numb = '0123456789'
 spec = string.punctuation
 # Characters and Numbers
