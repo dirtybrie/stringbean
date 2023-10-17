@@ -20,9 +20,13 @@ chk_path = f"/home/{user}/Documents"
 win_chkpath = f"C:\\Users\\{user}\\Documents"
 
 # ASCII TABLE
+# Upper-Lowercase letters
 char = string.ascii_letters
+# Uppercase letters
 u_char = string.ascii_uppercase
-l_char = string.ascii_lowercase
+# Lowercase letters
+l_ char = string.ascii_lowercase
+# you can Obviously tell what that is...
 numb = '0123456789'
 spec = string.punctuation
 # Characters and Numbers
