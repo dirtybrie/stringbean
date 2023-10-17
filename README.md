@@ -68,9 +68,13 @@ If you don't know what ASCII is, it's just a fancy way of saying letters, number
 Say you want more than just uppercase/lowercase letters and numbers
 you want to through in special characters as well. To do so, you would
 swap **charnumb** in line 140 which is:<br/>
+
 stringbean = random_string_generator(args.strlen, charnumb)<br/>
-with the variable **cns**.:<br/>
+
+with the variable **cns**:<br/>
+
 stringbean = random_string_generator(args.strlen, cns)<br/>
+
 If you just want numbers you'd swap it with numb, etc,etc...<br/>
 The only thing is you cant just print uppercase or lower case characters<br/>
 
