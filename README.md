@@ -3,9 +3,9 @@
 
 A simple random string generator
 
-#Usage
+# Usage
 Stringbean is a python script
-you can run it by:
+you can run it by:<\br>
 $./stringbean
 $python stringbean
 you can also copy/cut paste it to your bin folder and it will run fine :)
@@ -24,7 +24,7 @@ string bean 13 300   | 13 letters, 300 lines
 This is for linux distro's only
 I'll have to throw in some exceptions for OS detection later
 
-#Description
+# Description
 This is a random string genorator is geared towards an aid for aircrack-ng 
 dictionary attacks for hotpot default generated passwords.
 the success rate I've had is about 34.22% on 82 ATT&T Hotspots, I sh*t you not
