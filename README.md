@@ -46,11 +46,12 @@ consists of Characters(uppercase & lowercase) and Numbers only. people tend to n
 change them (suprisingly) and the libraries that give out hotspots tell the recipient 
 not to change the passwords either. If a hotspot has the default name like
 ATT-WIFI-aX4D chances are they kept the password since they didn't bother
-changing the name.
+changing the ESSID.
  
 This program will generate randome strings/texts over and over and append those
-strings to a file.
+strings to a file with a length and line limit of your chosing.
 The strings by default consist of uppercase;lowercase characters and numbers only.
+(Since thats how most hotspots generate their passwords)
 
 If for some reason you do not have a Documents in your User directory
 This program will through an error. Just make one
@@ -64,15 +65,15 @@ stringbean won't overwrite but instead append to it.
 
 ## Manipulating The Script
 
-Very doable, any script can be manipulated. getting it to work is another thing<br/>
-Fortunately this is a very basic script and I made it even easier to manipulate</br>
-Go head and pull up the raw script of stringbean while your reading.
+Very doable, any script can be manipulated. getting it to work is another thing.<br/>
+Fortunately this is a very basic script and I made it even easier for manipulation.</br>
+Go head and pull up the code of stringbean while your reading.
 
-Ok so our variables between line 19-30 is declared is the ASCII Table.
+Ok so our variables between line 22-40 is declared is the ASCII Table.
 If you don't know what ASCII is, it's just a fancy way of saying letters, numbers and punctuation.<br/>
 Say you want more than just uppercase/lowercase letters and numbers
 you want to through in special characters as well. To do so, you would
-swap **charnumb** in line 136 if your using Linux, line 152 for Windows which is:<br/>
+swap **charnumb** in line 143 if your using Linux, line 159 for Windows which is:<br/>
 ```
 stringbean = random_string_generator(args.strlen, charnumb)<br/>
 ```
