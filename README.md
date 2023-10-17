@@ -3,12 +3,11 @@
 
 A simple random string generator
 
-## Usage
-> Stringbean is a python3 script<br/>
+> stringbean is a python3 script<br/>
 > Compatable with any version after python3.4<br/>
 > Works for Linux & Windows (posix & nt)<br/>
 
-you can run it by:<br/>
+## __TO RUN IT:__
 ### LINUX
 ```bash
 sudo chmod +x stringbean
@@ -37,22 +36,25 @@ For linux you can also copy/cut paste it to your bin folder and it will run fine
 
 ## Description
 
-This is a random string genorator is geared towards an aid for aircrack-ng 
-dictionary attacks for hotspot default generated passwords.
-the success rate I've had is about 34.22% on 82 ATT&T Hotspots, I sh*t you not
+This is a random string generator, it is geared towards an aid for aircrack-ng 
+dictionary attacks for hotspot with default generated passwords.
+the success rate I've had is about 34.22% on 82 ATT&T Hotspots, I sh*t you not.
 However the actual odds are very, very devestating for us.
  
 Hotspots, modems and routers a lot of the times come with a default password that 
 consists of Characters(uppercase & lowercase) and Numbers only. people tend to not
 change them (suprisingly) and the libraries that give out hotspots tell the recipient 
-not to change the passwords either.
+not to change the passwords either. If a hotspot has the default name like
+ATT-WIFI-aX4D chances are they kept the password since they didn't bother
+changing the name.
  
-This program will generate randome strings.
-The strings consist of uppercase;lowercase characters and numbers only.
+This program will generate randome strings/texts over and over and append those
+strings to a file.
+The strings by default consist of uppercase;lowercase characters and numbers only.
 
-If for some reason you do not have a Documents in your /home/user directory
+If for some reason you do not have a Documents in your User directory
 This program will through an error. Just make one
-or edit the script for it to go somewhere else
+or edit the script for it to go somewhere else.
 
 Just FYI the file stringbean writes to is in append mode so as long
 as the name you give the .txt file remains the same and is in the
@@ -71,13 +73,13 @@ If you don't know what ASCII is, it's just a fancy way of saying letters, number
 Say you want more than just uppercase/lowercase letters and numbers
 you want to through in special characters as well. To do so, you would
 swap **charnumb** in line 136 if your using Linux, line 152 for Windows which is:<br/>
-
+```
 stringbean = random_string_generator(args.strlen, charnumb)<br/>
-
+```
 with the variable **cns**:<br/>
-
+```
 stringbean = random_string_generator(args.strlen, cns)<br/>
-
+```
 If you just want numbers you'd swap it with numb, etc,etc...<br/>
 The only thing is you cant just print uppercase or lower case characters(for now...)<br/>
 
