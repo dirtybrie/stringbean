@@ -123,7 +123,7 @@ by changing the values of the str_limit and lst_limit.
 __UPDATES__<br/>
 
 <sup>
-10/16/23 OSdetection<br/>
-10/17/23 Root detection<br/>
+10/16/23 OS detection<br/>
+10/17/23 root detection<br/>
 </sup>
 
