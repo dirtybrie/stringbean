@@ -57,41 +57,43 @@ For linux you can also copy/cut paste it to your bin folder and it will run fine
 * then it will create a directory in Documents called stringbean and put your file there.
 > [!NOTE]
 > __If your root files will be exported to the /opt directory instead__
-
-| cmd | descriton |
-| --- | --- |
+```
+| cmd               | descriton                                                |
 |stringbean 8 10000 | generate a random text with the length of 8, 10000 times |
-|stringbean 13 300 | generate a random text with the lengtrh of 13, 300 times |
-
+|stringbean 13 300  | generate a random text with the lengtrh of 13, 300 times |
+```
 ## Description
 
 This is a random string generator, it is geared towards an aid for aircrack-ng 
-dictionary attacks for hotspot with default generated passwords.
+dictionary attacks for hotspots with default generated passwords.
 the success rate I've had is about 34.22% on 82 ATT&T Hotspots, I sh*t you not.
 However the actual odds are very, very devestating for us.
  
 Hotspots, modems and routers a lot of the times come with a default password that 
 consists of Characters(uppercase & lowercase) and Numbers only. people tend to not
 change them (suprisingly) and the libraries that give out hotspots tell the recipient 
-not to change the passwords either. If a hotspot has the default name like
+not to change the passwords either. If a hotspot has the default ESSID like
 ATT-WIFI-aX4D chances are they kept the password since they didn't bother
 changing the ESSID.
  
 This program will generate randome strings/texts over and over and append those
-strings to a file with a length and line limit of your chosing.
-The strings by default consist of uppercase;lowercase characters and numbers only.
+strings to a file with a text length and line limit of your chosing.
+The strings by default consist of upper-lowercase characters and numbers only.
 (Since thats how most hotspots generate their passwords)
 
 > [!WARNING]
 > If for some reason you do not have the Documents folder in your User directory
 > This program will throwback an error. Just make one
-> or edit the script for it to go somewhere else.
+> or edit the script for it to go somewhere else.<br/>
+> If your root I've the slightest clue how you wouldn't have an /opt
+> directory but the same thing above applies just make one or edit the script.
 
-Just FYI the file stringbean writes to is in append mode so as long
-as the name you give the .txt file remains the same and is in the
-stringbean directory.
-stringbean won't overwrite but instead append to it.
--db
+> [!NOTE]
+> Just FYI the file stringbean writes to is in append mode so as long
+> as the name you give the .txt file remains the same and is in the
+> stringbean directory.
+> stringbean won't overwrite but instead append to it.
+> -db
 
 ## Manipulating The Script
 
