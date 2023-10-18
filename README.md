@@ -103,11 +103,11 @@ Very doable, any script can be manipulated. getting it to work is another thing.
 Fortunately this is a very basic script and I made it even easier for manipulation.</br>
 Go head and pull up the code of stringbean while your reading.
 
-Ok so our variables between line 23-41 is commented as the ASCII Table.
+Ok so our variables between line 23-41 is commented as the 'ASCII Table'.
 If you don't know what ASCII is, it's just a fancy way of saying letters, numbers and punctuation.
 Say you want more than just uppercase/lowercase letters and numbers
 you want to throw in special characters as well. To do so, you would
-swap **charnumb** in lines 162 & 178 (if your using Linux, line 195 for Windows) which is:<br/>
+swap **charnumb** in lines 162(user) & for 178(root) if your using Linux, line 195 for Windows which is:<br/>
 ```
 stringbean = random_string_generator(args.strlen, charnumb)<br/>
 ```
@@ -115,7 +115,7 @@ with the variable **cns**:<br/>
 ```
 stringbean = random_string_generator(args.strlen, cns)<br/>
 ```
-If you just want numbers you'd swap it with numb, etc,etc...<br/>
+If you just want numbers you'd swap it with numb, etc, etc...<br/>
 
 You can also alter the limit for text length and lines in a file
 by changing the values of the str_limit and lst_limit.
