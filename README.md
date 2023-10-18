@@ -53,10 +53,10 @@ For linux you can also copy/cut paste it to your bin folder and it will run fine
  
 ### COMMANDS
 * __You have to give give it 2 arguments and they must be integers__.
-* The first argument is the length of the text
-* The second argument is how many lines per text file
-* stringbean detects the OS and prompts you to name the file containing the texts
-* then it will create a directory in Documents called stringbean and put your file there.
+* The first argument is the length of the text.
+* The second argument is how many lines per text file.
+* stringbean detects your OS then prompts you to name the file containing the texts,
+* then it will create a directory in Documents called 'stringbean' and puts your file there.
 > [!NOTE]
 > __If your root files will be exported to the /opt directory instead__
 ```
@@ -69,9 +69,9 @@ For linux you can also copy/cut paste it to your bin folder and it will run fine
 This is a random string generator, it is geared towards an aid for aircrack-ng 
 dictionary attacks for hotspots with default generated passwords.
 the success rate I've had is about 34.22% on 82 ATT&T Hotspots, I sh*t you not.
-However the actual odds are very, very devestating for us.
- 
-Hotspots, modems and routers a lot of the times come with a default password that 
+However the actual odds are very, very, VERY devestating for us.
+
+Hotspots, modems and routers a lot of the time come with a default password that 
 consists of Characters(uppercase & lowercase) and Numbers only. people tend to not
 change them (suprisingly) and the libraries that give out hotspots tell the recipient 
 not to change the passwords either. If a hotspot has the default ESSID like
@@ -84,9 +84,8 @@ The strings by default consist of upper-lowercase characters and numbers only.
 (Since thats how most hotspots generate their passwords)
 
 > [!WARNING]
-> If for some reason you do not have the Documents folder in your User directory
-> This program will throwback an error. Just make one
-> or edit the script for it to go somewhere else.<br/>
+> If for some reason you do not have the Documents folder in your username directory
+> This program will throwback an error. Just make one or edit the script for it to go somewhere else.<br/>
 > If your root I've the slightest clue how you wouldn't have an /opt
 > directory but the same thing above applies just make one or edit the script.
 
@@ -95,6 +94,7 @@ The strings by default consist of upper-lowercase characters and numbers only.
 > as the name you give the .txt file remains the same and is in the
 > stringbean directory.
 > stringbean won't overwrite but instead append to it.
+> DO NOT CHANGE IT TO OVERWRITE MODE("w+")
 > -db
 
 ## Manipulating The Script
