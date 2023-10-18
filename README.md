@@ -8,7 +8,7 @@ A simple random string generator
 > Works for POSIX-compliant OS and NTFS (Linux/Mac, Windows)<br/>
 
 > [!IMPORTANT]
-> 1. The output for this script on windows is much longer than it is for linux just be mindful when you
+> 1. The output for this script on windows is exponentially slower than linux. Just be mindful when you
 > want to generate anything above 5000 lines. If your using linux it will spit out a 200,000 line file like nothing.<br/>
 > 2. I have not tested stringbean on Mac yet, however macOS's core is a
 > POSIX-compliant operating system so the exceptions in this code should still follow through.
