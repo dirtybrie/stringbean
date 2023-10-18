@@ -56,7 +56,7 @@ For linux you can also copy/cut paste it to your bin folder and it will run fine
 * stringbean detects the OS and prompts you to name the file containing the texts
 * then it will create a directory in Documents called stringbean and put your file there.
 > [!NOTE]
-> __If your root files will be exporeted to the /opt directory instead__
+> __If your root files will be exported to the /opt directory instead__
 
 | cmd | descriton |
 | --- | --- |
