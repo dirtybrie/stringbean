@@ -55,6 +55,8 @@ For linux you can also copy/cut paste it to your bin folder and it will run fine
 * The second argument is how many lines per text file
 * stringbean detects the OS and prompts you to name the file containing the texts
 * then it will create a directory in Documents called stringbean and put your file there.
+> [!NOTE]
+> __If your root files will be exporeted to the /opt directory instead__
 
 | cmd | descriton |
 | --- | --- |
@@ -87,7 +89,7 @@ The strings by default consist of uppercase;lowercase characters and numbers onl
 
 Just FYI the file stringbean writes to is in append mode so as long
 as the name you give the .txt file remains the same and is in the
-stringbeans directory.
+stringbean directory.
 stringbean won't overwrite but instead append to it.
 -db
 
@@ -101,7 +103,7 @@ Ok so our variables between line 23-41 is commented as the ASCII Table.
 If you don't know what ASCII is, it's just a fancy way of saying letters, numbers and punctuation.
 Say you want more than just uppercase/lowercase letters and numbers
 you want to throw in special characters as well. To do so, you would
-swap **charnumb** in line 144 (if your using Linux, line 160 for Windows) which is:<br/>
+swap **charnumb** in lines 162 & 178 (if your using Linux, line 195 for Windows) which is:<br/>
 ```
 stringbean = random_string_generator(args.strlen, charnumb)<br/>
 ```
@@ -115,4 +117,11 @@ You can also alter the limit for text length and lines in a file
 by changing the values of the str_limit and lst_limit.
 
 > Tips for me on better programming? Contact me ;)
+
+__UPDATES__<br/>
+
+<sup>
+10/16/23 OSdetection<br/>
+10/17/23 Root detection<br/>
+</sup>
 
