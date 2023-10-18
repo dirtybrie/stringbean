@@ -13,7 +13,7 @@ A simple random string generator
 > 2. I have not tested stringbean on Mac yet, however macOS's core is a
 > POSIX-compliant operating system so the exceptions in this code should still follow through.
 > gnu/linux is based off of unix, Not to be construed as the same but the commands are similar
-> and files are structured the same way. So there shouldn't be an issue as long as you have python3 intalled on your Mac.<br/>
+> and files are structured the same way. So there shouldn't be an issue as long as you have any version after python3.4 intalled on your Mac.<br/>
 > Just follow the same instructions for Linux below.
 
 ### COMPATABILITY CHECK
