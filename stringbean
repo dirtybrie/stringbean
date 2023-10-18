@@ -1,10 +1,9 @@
 #! /usr/bin/python3
 
-# STRINGBEAN v 0.02
+# STRINGBEAN v 0.3
 # by Dirty Brie
-# licensed under the:
+# Licensed under the:
 # GNU GENERAL PUBLIC LICENSE v3.0
-# copyright; 10/16/2023
 
 import random
 import string
@@ -16,12 +15,14 @@ os.getcwd()
 
 user = getpass.getuser()
 path = f"/home/{user}/Documents/stringbean"
-winpath = f"C:\\Users\\{user}\\Documents\\stringbean"
 chk_path = f"/home/{user}/Documents"
+r_path = "/opt/stringbean"
+r_chkpath = "/opt"
 win_chkpath = f"C:\\Users\\{user}\\Documents"
+winpath = f"C:\\Users\\{user}\\Documents\\stringbean"
 
 # ASCII TABLE
-# Upper-Lowercase letters
+# Uppercase adn Lowercase letters
 char = string.ascii_letters
 # Uppercase letters
 u_char = string.ascii_uppercase
@@ -69,7 +70,7 @@ class banners():
 		print('''
 STRINGBEAN v0.02
 by dirty brie
-
+ 
 _________________________________________________________
 usage:
 2 arguments are required, both arguments must be integers
@@ -103,8 +104,22 @@ class checkdir(object):
 	def mkdir(self, path):
 		if not os.path.isdir(path):
 			os.mkdir(path)
-			print(f"Creating Directory: home/{user}/Documents/stringbean")
+			print(f"Creating Directory: /home/{user}/Documents/stringbean")
 		elif os.path.isdir(path):
+			return
+
+	def sudo_chkdir(self, chkpath):
+		if not os.path.isdir(r_chkpath):
+			print("You need an opt directory in /")
+			sys.exit(1)
+		elif os.path.isdir(r_chkpath):
+			return
+
+	def sudo_mkdir(self, path):
+		if not os.path.isdir(r_path):
+			os.mkdir(r_path)
+			print(f"Creating Directory: /opt/stringbean")
+		elif os.path.isdir(r_path):
 			return
 
 	def win_chkdir(self, chkpath):
@@ -126,7 +141,10 @@ class checkdir(object):
 		if os.name == "nt":
 			return 2
 		elif os.name == "posix":
-			return 1
+			if getpass.getuser() == 'root':
+				return 3
+			else:
+				return 1
 		else:
 			print("incompatable OS. sorry...")
 			
@@ -140,7 +158,7 @@ class strgen(object):
 			count = 0
 			filename = input("Enter the name you want the file to be: ")
 			while count != args.lstlen:
-				# FOR LINUX Here you can swap charnumb with one of variables at the ASCII Table (lines 22-33)
+				# FOR LINUX Here you can swap charnumb with one of variables at the ASCII Table (lines 45-56)
 				stringbean = random_string_generator(args.strlen, charnumb)
 				output = stringbean + "\n"
 				with open(f"/home/{user}/Documents/stringbean/{filename}.txt", "a+") as text_file:
@@ -151,12 +169,29 @@ class strgen(object):
 			return
 		else:
 			print("Invalid Entry... \nQUITING!!!")
+
+	def sudo_spitrun(self):
+		if args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("Enter the name you want the file to be: ")
+			while count != args.lstlen:
+				stringbean = random_string_generator(args.strlen, charnumb)
+				output = stringbean + "\n"
+				with open(f"/opt/stringbean/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"Output file: /opt/stringbean/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		else:
+			print("Invalid Entry... \nQUITING!!!")
+
 	def win_spitrun(self):
 		if args.strlen < str_limit and args.lstlen < lst_limit:
 			count = 0
 			filename = input("Enter the name you want the file to be: ")
 			while count != args.lstlen:
-				# FOR WINDOWS Here you can swap charnumb with one of variables at the ASCII Table (lines 22-33)
+				# FOR WINDOWS Here you can swap charnumb with one of variables at the ASCII Table (lines 45-56)
 				stringbean = random_string_generator(args.strlen, charnumb)
 				output = stringbean + "\n"
 				with open(f"C:\\Users\\{user}\\Documents\\stringbean\\{filename}.txt", "a+") as text_file:
@@ -166,7 +201,7 @@ class strgen(object):
 			print(f"Output file: C:\\Users\\{user}\\stringbean\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			return
 		else:
-			print("Invalid Entry... \nbyeeeee!")
+			print("Invalid Entry... \nQUITING!!!")
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
@@ -189,3 +224,8 @@ if __name__ == '__main__':
 			checkdir.win_mkdir(winpath)
 			strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
 			strgen.win_spitrun()
+		elif checkdir.chk_os() == 3:
+			checkdir.sudo_chkdir(r_chkpath)
+			checkdir.sudo_mkdir(r_path)
+			strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+			strgen.sudo_spitrun()
