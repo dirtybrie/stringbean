@@ -14,11 +14,9 @@ A simple random string generator
 > and files are structured the same way. So there shouldn't be an issue as long as you have python3 intalled on your Mac.<br/>
 > Just follow the same instructions for Linux below.
 
-## __TO RUN IT:__
+### COMPATABILITY CHECK
 
-### COMPATABILITY CHECK:
-
-__MAC/LINUX:__
+__MAC/LINUX__
 ```python
 python
 import os
@@ -26,7 +24,7 @@ os.name
 ```
 If the return is 'posix' you're good to go!<br>
 
-__WINDOWS:__
+__WINDOWS__
 ```python
 py
 import os
@@ -34,7 +32,9 @@ os.name
 ```
 If it returns 'nt' your all set!
 
-### LINUX
+## TO RUN IT
+
+__LINUX__
 ```
 sudo chmod +x stringbean
 ./stringbean
@@ -43,7 +43,7 @@ sudo chmod +x stringbean
 ```
 python stringbean
 ```
-### WINDOWS
+__WINDOWS__
 ```
 py stringbean
 ```
