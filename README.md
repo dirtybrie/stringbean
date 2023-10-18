@@ -60,9 +60,9 @@ For linux you can also copy/cut paste it to your bin folder and it will run fine
 > [!NOTE]
 > __If your root files will be exported to the /opt directory instead__
 ```
-| cmd               | descriton                                                |
-|stringbean 8 10000 | generate a random text with the length of 8, 10000 times |
-|stringbean 13 300  | generate a random text with the lengtrh of 13, 300 times |
+| cmd                | descriton                                                |
+| stringbean 8 10000 | generate a random text with the length of 8, 10000 times |
+| stringbean 13 300  | generate a random text with the lengtrh of 13, 300 times |
 ```
 ## Description
 
