@@ -165,7 +165,7 @@ class strgen(object):
 					text_file.write(output)
 				count += 1
 			banners.str_machine()
-			print(f"Output file: /home/user/stringbean/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			print(f"Output file: /home/{user}/stringbean/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			return
 		else:
 			print("Invalid Entry... \nQUITING!!!")
