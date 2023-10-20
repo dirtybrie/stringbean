@@ -110,7 +110,7 @@ class banners():
 		pass
 
 	def str_machine(self):
-		print('''\033[38:5:208m
+		print(Tfg + f'''{hex_start}
 |####################################|
 |>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|
 |######             .         ##### #|
@@ -131,11 +131,11 @@ class banners():
 |<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<|
 |####################################|
 
-		\033[0;0m\n[0;0m''')
+		{hex_end}''')
 		print(Style.RESET_ALL)
 	
 	def help_sb(self):
-		print('''\033[38:5:208m
+		print(Tfg + f'''{hex_start}
 ___________________________________________________________________________
 hXXXXXXXXXXXXXXXxxxXXXX      stringBEAN v2.0     XxXXXXXXXXXXXXXXXXXXXXXXX0
   CXxXXXxxxxxXXXXXXxx      Copyright (C) 2023       xxXXXXXXXXXXXXXXXXXXF
@@ -157,7 +157,7 @@ ex: stringbean -cn 8 12000  	       ####### xxxxxxx
 Length of Text-----'   |              ###############	
 Lines per File---------'            #############
 ___________________________________________________________
-		\033[0;0m\n''')
+		{hex_end}''')
 		print(Style.RESET_ALL)
 
 # Our generator, curtosy of python's 'random' module
@@ -552,10 +552,16 @@ if __name__ == '__main__':
 	# If niether length and list integers or given display the help banner
 	if not (args.strlen and args.lstlen):
 		checkdir.chk_os()
-		if (checkdir.chk_os() == 1 or 2):
+		if not checkdir.chk_os() == 3:
+			Tfg = ''
+			hex_start = '\033[38:5:208m'
+			hex_end =  '\033[0;0m\n[0;0m'
 			banners.help_sb()
-		elif checkdir.chk_os() == 3:
+		elif os.name == 'nt':
 			from colorama import just_fix_windows_console
+			Tfg = Fore.RED
+			hex_start = ''
+			hex_end = ''
 			just_fix_windows_console()
 			banners.help_sb()
 			print("test")
