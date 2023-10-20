@@ -63,7 +63,7 @@ __WINDOWS__
 py stringbean
 ```
 if you download stringbean file make sure to take out the .txt on the end!<br/>
-if your using git just ingnore this warning
+if your using git just ignore this warning
  
 ### COMMANDS
 * __You have to give give it 3 arguments the 1st is an option, 2nd and 3rd must be integers__.
