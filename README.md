@@ -52,11 +52,12 @@ __LINUX__
 sudo chmod +x stringbean
 ./stringbean
 ```
-For linux you can also copy/cut paste it to your bin folder and it will run fine :)
--or-
+__-or-__
 ```
 python stringbean
 ```
+For linux you can also copy/cut paste it to your bin folder and it will run fine :)
+
 __WINDOWS__
 ```
 py stringbean
