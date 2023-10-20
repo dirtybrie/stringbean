@@ -1,113 +1,191 @@
 #! /usr/bin/python3
 
-# STRINGBEAN v0.3
+# stringBEAN v 0.7
 # by Dirty Brie
+# https://github.com/dirtybrie
+#
 # Licensed under the:
 # GNU GENERAL PUBLIC LICENSE v3.0
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation
+#
+# This program is distributed
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
 
 import random
 import string
 import argparse
 import getpass
+import time
+import socket
 import sys
 import os
-os.getcwd()
 
+# Check if the user is online for pip if they dont have colorama.
+def inet_chk():
+	remote_server= 'www.pypi.org'
+	port = 80
+	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	sock.settimeout(5)
+	try:
+		sock.connect((remote_server, port))
+		return True
+	except socket.error:
+		return False
+	finally:
+		sock.close()
+
+# colorama is not a builtin module so if the user doesn't have this Auto Install choice will execute and check if their online
+# for pip to proceed in installing colorama.
+try:
+	from colorama import Fore, Style, just_fix_windows_console
+except ImportError:
+	print("\n [IMPORTANT!]\n You don't have the colorama module\n stringBEAN has an auto install feature for colorama\n make sure you have an internet concection before you enter 'y'\n")
+	time.sleep(2.33)
+	try:
+		user_choice = input(" Attempt to Auto-Install Colorama? [y/N] ")
+	except (KeyboardInterrupt):
+		print ("\nbyeeeeee. (KeyboardInterrupt)")
+		sys.exit(1)
+	if user_choice.strip().lower() == 'y':
+		if inet_chk():
+			print("Attempting to Install colorama")
+			sys.stdout.flush()
+			try:
+				import subprocess
+				subprocess.check_call([sys.executable,'-m', 'pip', 'install', '-q', 'colorama'])
+				from colorama import Fore, Style, just_fix_windows_console
+			except (ModuleNotFoundError, ImportError):
+				("Import Error: just run [python -m pip install colorama]")
+				sys.exit(1)
+		else:
+			print("\n since you obviously didn't read the message above")
+			print(" YOU NEED TO BE CONNECTED TO THE INTERNET SO PIP CAN INSTALL COLORAMA")
+			print(" after colorama is installed you won't need an internet connection to run stringBEAN")
+			sys.exit(1)
+	elif user_choice.strip().lower() == 'n':
+		print("\n OK! quitting")
+		sys.exit(1)
+	else:
+		print("\n INVALID OPTION: its either 'y' or 'n'")
+		sys.exit(1)
+	print("\n stringBEAN: Your All Set ;)")
+
+# Varibles for username and directory paths
 user = getpass.getuser()
-path = f"/home/{user}/Documents/stringbean"
+path = f"/home/{user}/Documents/stringBEAN"
 chk_path = f"/home/{user}/Documents"
-r_path = "/opt/stringbean"
+r_path = "/opt/stringBEAN"
 r_chkpath = "/opt"
 win_chkpath = f"C:\\Users\\{user}\\Documents"
-winpath = f"C:\\Users\\{user}\\Documents\\stringbean"
+winpath = f"C:\\Users\\{user}\\Documents\\stringBEAN"
 
 # ASCII TABLE
-# Uppercase adn Lowercase letters
+# Uppercase and Lowercase letters
 char = string.ascii_letters
-# Uppercase letters
-u_char = string.ascii_uppercase
-# Lowercase letters
-l_char = string.ascii_lowercase
-# you can Obviously tell what that is...
+# you can obviously see what that is...
 numb = '0123456789'
 # Special Characters
 spec = string.punctuation
 # Characters and Numbers
 charnumb = char + numb
 # Characters and Special Characters
-charspec = char + spec
+c_spec = char + spec
 # Numbers and Special Characters
-numbspec = numb + spec
+n_spec = numb + spec
 # Characters, Numbers and Special Characters.
-cns = char + numb + spec
+cn_spec = char + numb + spec
 
 # LIMITS
-str_limit = 21
-lst_limit = 200001
+str_limit = 101
+lst_limit = 500001
+winlst_limit = 50001
 
+# stringBEAN help and final output banners
 class banners():
 	def __init__(self):
 		pass
 
 	def str_machine(self):
-		print('''
-               n
-       	        nm
-        	  MM
-        	  ### 
-        	f#$$#
-               __$$$$_  
-               | \##
-	_______|  |____ 
-	|___X     X __| 
-	|____xxxxx____| 
-	|r E 3 f $ # v| 
-	|v_v_v_v_v_v_v| 
-	|_____________| 
+		boldsb = 'stringBEAN'
+		print(Fore.RED, f'''
+|####################################|
+|>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|
+|######             .         ##### #|
+|# #####           n           ######|
+|######             nm        ##### #|
+|# ##### stringBEAN  MM        ######|
+|######               ###     ##### #|
+|# #####             f#$$#     ######|
+|######           __$$$$      ##### #|
+|# #####          | \##        ######|
+|######    _______|  |____    ##### #|
+|# #####   |___X     X __|     ######|
+|######    |____xxxxx____|    ##### #|
+|# #####   |r C 3 f $ # 6|     ######|
+|######    |v_v_v_v_v_v_v|    ##### #|
+|# #####   |_____________|     ######|
+|######                       ##### #|
+|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<|
+|####################################|
+
 		''')
+		print(Style.RESET_ALL)
 	
 	def help_sb(self):
-		print('''
-STRINGBEAN v.3
-by dirty brie
- 
-_________________________________________________________
-usage:
-2 arguments are required, both arguments must be integers
-
-the First argument is how long the texts will be.
-the Second argument is how many lines per text file.
-The limit for the length: 20
-the limit for lines: 200,000
-
-ex:                       description:
-stringbean 8 1000       | 8 characters, 1000 lines
-stringbean 10 300       | 10 characters, 300 lines
-__________________________________________________________
+		print(Fore.RED + Style.BRIGHT + '''
+___________________________________________________________________________
+hXXXXXXXXXXXXXXXxxxXXXX      stringBEAN v2.0     XxXXXXXXXXXXXXXXXXXXXXXXX0
+  CXxXXXxxxxxXXXXXXxx      Copyright (C) 2023       xxXXXXXXXXXXXXXXXXXXF
+     8XXXXXXXXXXXXXxxxxXX    by dirty brie   XXXXXxxXXXXXXXXXXXXXXXX#
+            @XXXXXXXXXXXXXXXX     x x     xxXXXXXXXXXXXXXXX2
+                                 `.X.
+____________________________________________________________
+-c          | Characters (Upper & Lower case)
+-n          | Numbers
+-s          | Special Characters
+-cn         | Characters + Numbers
+-cs         | Characters + Special Characters
+-ns         | Numbers + Special Characrers              
+-cns        | Characters + Numbers + Special Characters 
+____________|___________________________________________
+                                      ######  X       X
+ex: stringbean -cn 8 12000  	       ####### xxxxxxx
+                   |   |                ###############
+Length of Text-----'   |              ###############	
+Lines per File---------'            #############
+___________________________________________________________
 		''')
+		print(Style.RESET_ALL)
 
+# Our generator, curtosy of python's 'random' module
 def random_string_generator(str_size, allowed_chars):
     return ''.join(random.choice(allowed_chars) for i in range(str_size))
 
+# Check directories for existence, make stringBEAN dir, checks the OS and wether user is root or not
 class checkdir(object):
 	def __init__(self):
 		pass
-
+	# Check Documents dir existence 
 	def chkdir(self, chkpath):
 		user = getpass.getuser()
 		if not os.path.isdir(chkpath):
-			print(f"stringbean needs a Documents directory in /home/{user}")
+			print(f"stringBEAN needs a Documents directory in /home/{user}")
 			sys.exit(1)
 		else:
 			return
-
+	# check stringBEAN dir existence, mkdir stringBEAN or proceed
 	def mkdir(self, path):
 		if not os.path.isdir(path):
 			os.mkdir(path)
-			print(f"Creating Directory: /home/{user}/Documents/stringbean")
+			print(f"Creating Directory: /home/{user}/Documents/stringBEAN")
 		elif os.path.isdir(path):
 			return
 
+	# Check /opt dir existence
 	def sudo_chkdir(self, chkpath):
 		if not os.path.isdir(r_chkpath):
 			print("You need an opt directory in /")
@@ -115,117 +193,399 @@ class checkdir(object):
 		elif os.path.isdir(r_chkpath):
 			return
 
+	# mkdir stringBEAN in opt/ directory unless stringBEAN exists, proceed
 	def sudo_mkdir(self, path):
 		if not os.path.isdir(r_path):
 			os.mkdir(r_path)
-			print(f"Creating Directory: /opt/stringbean")
+			print(f"Creating Directory: /opt/stringBEAN")
 		elif os.path.isdir(r_path):
 			return
 
+	# check Documents directory for windows user
 	def win_chkdir(self, chkpath):
 		user = getpass.getuser()
 		if not os.path.isdir(win_chkpath):
-			print(f"stringbean needs a Documents directory in C:\\Users\\{user}")
+			print(f"stringBEAN needs a Documents directory in C:\\Users\\{user}")
 			sys.exit(1)
 		else:
 			return
-
+	# check stringBEAN existence mkdir stringBEAN, unless it exists then proceed
 	def win_mkdir(self, path):
 		if not os.path.isdir(path):
 			os.mkdir(winpath)
-			print(f"Creating Directory: C:\\Users\\{user}\\Documents\\stringbean")
+			print(f"Creating Directory: C:\\Users\\{user}\\Documents\\stringBEAN")
 		elif os.path.isdir(path):
 			return
-
+	# OS and root detection
 	def chk_os(self):
 		if os.name == "nt":
-			return 2
+			return 3
 		elif os.name == "posix":
 			if getpass.getuser() == 'root':
-				return 3
+				return 2
 			else:
 				return 1
 		else:
 			print("incompatable OS. sorry...")
-			
+
+# This block is the final output.
 class strgen(object):
-	def __init__(self, strlen=False, lstlen=False):
+	def __init__(self,choice=False, strlen=False, lstlen=False):
 		self.strlen = strlen
 		self.lstlen = lstlen
 		
+	# The reason I'm being repitive like this is because nesting functions
+	# within functions, using return and arg tricks and the like does't beat
+	# the performance of simpler code.
+
+	# Final output for non-root user
 	def spitrun(self):
-		if args.strlen < str_limit and args.lstlen < lst_limit:
-			count = 0
-			filename = input("Enter the name you want the file to be: ")
+		global count
+		count = 0
+		
+		# -cn argument (which is the default)
+		if args.chnmb and args.strlen < str_limit and args.lstlen < lst_limit:
+			filename = input("name the file: ")
 			while count != args.lstlen:
-				# FOR LINUX Here you can swap charnumb with one of variables at the ASCII Table (lines 45-56)
-				stringbean = random_string_generator(args.strlen, charnumb)
-				output = stringbean + "\n"
-				with open(f"/home/{user}/Documents/stringbean/{filename}.txt", "a+") as text_file:
+				stringBEAN = random_string_generator(args.strlen, charnumb)
+				output = stringBEAN + "\n"
+				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
 			banners.str_machine()
-			print(f"Output file: /home/{user}/stringbean/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+			
+		# -n argument
+		elif args.nmb and args.strlen < str_limit and args.lstlen < lst_limit:
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, numb)
+				output = stringBEAN + "\n"
+				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+			
+		# -c argument
+		elif args.chr and args.strlen < str_limit and args.lstlen < lst_limit:
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, char)
+				output = stringBEAN + "\n"
+				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		
+		# -s argument
+		elif args.sp and args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, spec)
+				output = stringBEAN + "\n"
+				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		
+		# -cs argument
+		elif args.chS and args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, c_spec)
+				output = stringBEAN + "\n"
+				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		
+		# -ns argument
+		elif args.nmS and args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				print(count)
+				stringBEAN = random_string_generator(args.strlen, n_spec)
+				output = stringBEAN + "\n"
+				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		
+		# -cns argument
+		elif args.cns and args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, cn_spec)
+				output = stringBEAN + "\n"
+				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			return
 		else:
-			print("Invalid Entry... \nQUITING!!!")
+				print("stringBEAN: EXCEEDED MAX LIMIT: string length: 100, lines/file: 500,000 \nQUITING!!!")
 
+	# Final output for root user
 	def sudo_spitrun(self):
-		if args.strlen < str_limit and args.lstlen < lst_limit:
+		if args.chnmb and args.strlen < str_limit and args.lstlen < lst_limit:
 			count = 0
-			filename = input("Enter the name you want the file to be: ")
+			filename = input("name the file: ")
 			while count != args.lstlen:
-				stringbean = random_string_generator(args.strlen, charnumb)
-				output = stringbean + "\n"
-				with open(f"/opt/stringbean/{filename}.txt", "a+") as text_file:
+				stringBEAN = random_string_generator(args.strlen, charnumb)
+				output = stringBEAN + "\n"
+				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
 			banners.str_machine()
-			print(f"Output file: /opt/stringbean/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.nmb and args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, numb)
+				output = stringBEAN + "\n"
+				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.chr and args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, char)
+				output = stringBEAN + "\n"
+				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.sp and args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, spec)
+				output = stringBEAN + "\n"
+				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.chS and args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, c_spec)
+				output = stringBEAN + "\n"
+				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.nmS and args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, n_spec)
+				output = stringBEAN + "\n"
+				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.cns and args.strlen < str_limit and args.lstlen < lst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, cn_spec)
+				output = stringBEAN + "\n"
+				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			return
 		else:
-			print("Invalid Entry... \nQUITING!!!")
+			print("stringBEAN: EXCEEDED MAX LIMIT: string length: 100, lines/file: 500,000 \nQUITING!!!")
 
+	# Final output for windows user
 	def win_spitrun(self):
-		if args.strlen < str_limit and args.lstlen < lst_limit:
+		just_fix_windows_console()
+		print("WARNING: Windows python performance is drasticly slower than using linux\n")
+		print("Any thing above 5,000 lines will take a while\n")
+		if args.chr and args.strlen < str_limit and args.lstlen < winlst_limit:
 			count = 0
-			filename = input("Enter the name you want the file to be: ")
+			filename = input("name the file: ")
 			while count != args.lstlen:
-				# FOR WINDOWS Here you can swap charnumb with one of variables at the ASCII Table (lines 45-56)
-				stringbean = random_string_generator(args.strlen, charnumb)
-				output = stringbean + "\n"
-				with open(f"C:\\Users\\{user}\\Documents\\stringbean\\{filename}.txt", "a+") as text_file:
+				stringBEAN = random_string_generator(args.strlen, char)
+				output = stringBEAN + "\n"
+				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
 			banners.str_machine()
-			print(f"Output file: C:\\Users\\{user}\\stringbean\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.nmb and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, numb)
+				output = stringBEAN + "\n"
+				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.sp and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, spec)
+				output = stringBEAN + "\n"
+				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.chnmb and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, charnumb)
+				output = stringBEAN + "\n"
+				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.chS and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, c_spec)
+				output = stringBEAN + "\n"
+				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.nmS and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, n_spec)
+				output = stringBEAN + "\n"
+				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
+			return
+		elif args.cns and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
+			filename = input("name the file: ")
+			while count != args.lstlen:
+				stringBEAN = random_string_generator(args.strlen, cn_spec)
+				output = stringBEAN + "\n"
+				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
+					text_file.write(output)
+				count += 1
+			banners.str_machine()
+			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			return
 		else:
-			print("Invalid Entry... \nQUITING!!!")
+			print("\nstringBEAN: EXCEEDED MAX LIMIT: string length: 100, lines/file: 50,000 \nQUITING!!!")
 
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser()
-	parser.add_argument("strlen", help="String Length", type=int, default=0, nargs="?")
-	parser.add_argument("lstlen", help="List Length/Lines", type=int, default=0, nargs="?")
+
+	sB_ver = 0.7
+
+	# Using argparse for argument designation
+	# i was going to go with classic sys.argv but this makes it easier only thing I hate about it
+	# is the forced help option. if you try to supress it our code could possibly break in
+	# future argparse updates.
+	parser = argparse.ArgumentParser(prog="stringBEAN",
+									description=f"stringBEAN v{sB_ver}: A simple R4nD0m string generator", 
+                                 	usage="stringBEAN [option] [integer] [integer] | run stringbean without -h for more info",
+									epilog="ex: stringBEAN -cn 8 10000")
+	
+	#Arguments
+	parser.add_argument("-c", help="Generate string(s) with Characters", action="store_true", default=False, dest="chr")
+	parser.add_argument("-n", help="Generate string(s) with Numbers", action="store_true", default=False, dest="nmb")
+	parser.add_argument("-s", help="Generate string(s) with Special Characters", action="store_true", default=False, dest="sp")
+	parser.add_argument("-cn", help="Generate string(s) with Characters and Numbers", action="store_true", default=False, dest="chnmb")
+	parser.add_argument("-cs", help="Generate string(s) with Numbers", action="store_true", default=False, dest="chS")
+	parser.add_argument("-ns", help="Generate string(s) with Numbers", action="store_true", default=False, dest="nmS")
+	parser.add_argument("-cns", help="Generate string(s) with Characters Numbers and Special Characters", action="store_true", default=False, dest="cns")
+	parser.add_argument("strlen", metavar="2nd integer", help="String Length", type=int, default=0, nargs="?")
+	parser.add_argument("lstlen", metavar="3rd integer", help="List Length/Lines", type=int, default=0, nargs="?")
 	args = parser.parse_args()
 	banners = banners()
+	
+	# If niether length and list integers or given display the help banner
 	if not (args.strlen and args.lstlen):
+		just_fix_windows_console()
 		banners.help_sb()
+	elif (args.strlen and args.lstlen) and not (args.chr or args.nmb or args.sp or args.chnmb or args.chS or args.nmS or args.cns): 
+		print("\nstringBEAN: You need To specify an option first, then 2 integers silly!.")
 	else:
-		checkdir = checkdir()
-		checkdir.chk_os()
-		if checkdir.chk_os() == 1:
-			checkdir.chkdir(chk_path)
-			checkdir.mkdir(path)
-			strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
-			strgen.spitrun()
-		elif checkdir.chk_os() == 2:
-			checkdir.win_chkdir(win_chkpath)
-			checkdir.win_mkdir(winpath)
-			strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
-			strgen.win_spitrun()
-		elif checkdir.chk_os() == 3:
-			checkdir.sudo_chkdir(r_chkpath)
-			checkdir.sudo_mkdir(r_path)
-			strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
-			strgen.sudo_spitrun()
+		# Try running these functions (Described above)
+		try:
+			checkdir = checkdir()
+			checkdir.chk_os()
+			# Our exceptions are relying on return values if its 1 non-root, posix
+			if checkdir.chk_os() == 1:
+				checkdir.chkdir(chk_path)
+				checkdir.mkdir(path)
+				strgen = strgen(choice=args.chr or 
+				args.nmb or 
+				args.sp or 
+				args.chnmb or 
+				args.chS or 
+				args.nmS or 
+				args.cns, 
+				strlen=args.strlen, 
+				lstlen=args.lstlen)
+				strgen.spitrun()
+			# if it's 2 root, posix
+			elif checkdir.chk_os() == 2:
+				checkdir.sudo_chkdir(r_chkpath)
+				checkdir.sudo_mkdir(r_path)
+				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+				strgen.sudo_spitrun()
+			# if it's 3 Windows
+			elif checkdir.chk_os() == 3:
+				checkdir.win_chkdir(win_chkpath)
+				checkdir.win_mkdir(winpath)
+				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+				strgen.win_spitrun()
+		except KeyboardInterrupt:
+			print("\n\nQUITTING ;)")
+			sys.exit(1)
+		    
