@@ -52,6 +52,7 @@ __LINUX__
 sudo chmod +x stringbean
 ./stringbean
 ```
+For linux you can also copy/cut paste it to your bin folder and it will run fine :)
 -or-
 ```
 python stringbean
@@ -60,7 +61,8 @@ __WINDOWS__
 ```
 py stringbean
 ```
-For linux you can also copy/cut paste it to your bin folder and it will run fine :)
+if you download stringbean file make sure to take out the .txt on the end!<br/>
+if your using git just ingnore this warning
  
 ### COMMANDS
 * __You have to give give it 3 arguments the 1st is an option, 2nd and 3rd must be integers__.
