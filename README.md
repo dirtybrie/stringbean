@@ -18,8 +18,8 @@ A simple random string generator
 ### QUICK UPDATES
 >10/19/23
 
-stringBEAN has options now!!! It also uses the colorama module for text color
-I put in an auto-install feature for colorama if you do not have it
+stringBEAN has options now!!!<br/> It also uses the colorama module for text color
+I put in an auto-install feature for colorama if you do not have it<br/>
 to skip the auto-intall feautre simply execute the code below:
 
 ```
@@ -91,8 +91,9 @@ lines per file---------'
 
 This is a random string generator, it is geared towards an aid for aircrack-ng 
 dictionary attacks for hotspots with default generated passwords.
-the success rate I've had is about 34.22% on 82 ATT&T Hotspots, I sh*t you not.
+I cracked 32 out of 81 Hotspots, I sh*t you not.
 However the actual odds are very, very, VERY devestating for us.
+(and yes I had permission to do so)
 
 Hotspots, modems and routers a lot of the time come with a default password that 
 consists of Characters(uppercase & lowercase) and Numbers only. people tend to not
