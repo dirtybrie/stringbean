@@ -110,7 +110,7 @@ class banners():
 		pass
 
 	def str_machine(self):
-		print(Tfg + f'''{hex_start}
+		print(Tfg + f'''{hex_st}
 |####################################|
 |>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|
 |######             .         ##### #|
@@ -131,11 +131,11 @@ class banners():
 |<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<|
 |####################################|
 
-		{hex_end}''')
+		{hext_end}''')
 		print(Style.RESET_ALL)
 	
 	def help_sb(self):
-		print(Tfg + f'''{hex_start}
+		print(Tfg + f'''{hex_st}
 ___________________________________________________________________________
 hXXXXXXXXXXXXXXXxxxXXXX      stringBEAN v2.0     XxXXXXXXXXXXXXXXXXXXXXXXX0
   CXxXXXxxxxxXXXXXXxx      Copyright (C) 2023       xxXXXXXXXXXXXXXXXXXXF
@@ -552,16 +552,16 @@ if __name__ == '__main__':
 	# If niether length and list integers or given display the help banner
 	if not (args.strlen and args.lstlen):
 		checkdir.chk_os()
-		if not checkdir.chk_os() == 3:
+		if checkdir.chk_os() != 3:
 			Tfg = ''
-			hex_start = '\033[38:5:208m'
-			hex_end =  '\033[0;0m\n'
+			hex_st = '\033[38:5:208m'
+			hex_end = '\033[0;0m\n'
 			banners.help_sb()
-		elif os.name == 'nt':
-			from colorama import just_fix_windows_console
+		elif checkdir.chk_os() == 3:
 			Tfg = Fore.RED + Style.BRIGHT
-			hex_start = ''
+			hex_st = ''
 			hex_end = ''
+			from colorama import just_fix_windows_console
 			just_fix_windows_console()
 			banners.help_sb()
 			print("test")
@@ -576,10 +576,18 @@ if __name__ == '__main__':
 			if checkdir.chk_os() == 1:
 				checkdir.chkdir(chk_path)
 				checkdir.mkdir(path)
-				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+				strgen = strgen(choice=args.chr or 
+				args.nmb or 
+				args.sp or 
+				args.chnmb or 
+				args.chS or 
+				args.nmS or 
+				args.cns, 
+				strlen=args.strlen, 
+				lstlen=args.lstlen)
 				Tfg = ''
-				hex_start = '\033[38:5:208m'
-				hex_end =  '\033[0;0m\n'
+				hex_st = '\033[38:5:208m'
+				hex_end = '\033[0;0m\n'
 				strgen.spitrun()
 			# if it's 2 root, posix
 			elif checkdir.chk_os() == 2:
@@ -587,19 +595,19 @@ if __name__ == '__main__':
 				checkdir.sudo_mkdir(r_path)
 				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
 				Tfg = ''
-				hex_start = '\033[38:5:208m'
-				hex_end =  '\033[0;0m\n'
+				hex_st = '\033[38:5:208m'
+				hex_end = '\033[0;0m\n'
 				strgen.sudo_spitrun()
 			# if it's 3 Windows
 			elif checkdir.chk_os() == 3:
 				from colorama import just_fix_windows_console
 				just_fix_windows_console()
-				Tfg = Fore.RED
-				hex_start = ''
-				hex_end = ''
 				checkdir.win_chkdir(win_chkpath)
 				checkdir.win_mkdir(winpath)
 				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+				Tfg = Fore.RED + Style.BRIGHT
+				hex_st = ''
+				hex_end = ''
 				strgen.win_spitrun()
 		except KeyboardInterrupt:
 			print("\n\nQUITTING ;)")
