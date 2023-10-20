@@ -110,8 +110,7 @@ class banners():
 		pass
 
 	def str_machine(self):
-		boldsb = 'stringBEAN'
-		print(Fore.RED, f'''
+		print('''\033[38:5:208m
 |####################################|
 |>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|
 |######             .         ##### #|
@@ -132,11 +131,11 @@ class banners():
 |<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<|
 |####################################|
 
-		''')
+		\033[0;0m\n[0;0m''')
 		print(Style.RESET_ALL)
 	
 	def help_sb(self):
-		print(Fore.RED + Style.BRIGHT + '''
+		print('''\033[38:5:208m
 ___________________________________________________________________________
 hXXXXXXXXXXXXXXXxxxXXXX      stringBEAN v2.0     XxXXXXXXXXXXXXXXXXXXXXXXX0
   CXxXXXxxxxxXXXXXXxx      Copyright (C) 2023       xxXXXXXXXXXXXXXXXXXXF
@@ -158,7 +157,7 @@ ex: stringbean -cn 8 12000  	       ####### xxxxxxx
 Length of Text-----'   |              ###############	
 Lines per File---------'            #############
 ___________________________________________________________
-		''')
+		\033[0;0m\n''')
 		print(Style.RESET_ALL)
 
 # Our generator, curtosy of python's 'random' module
@@ -559,6 +558,7 @@ if __name__ == '__main__':
 			from colorama import just_fix_windows_console
 			just_fix_windows_console()
 			banners.help_sb()
+			print("test")
 		
 	elif (args.strlen and args.lstlen) and not (args.chr or args.nmb or args.sp or args.chnmb or args.chS or args.nmS or args.cns): 
 		print("\nstringBEAN: You need To specify an option first, then 2 integers silly!.")
