@@ -553,7 +553,7 @@ if __name__ == '__main__':
 	# If niether length and list integers or given display the help banner
 	if not (args.strlen and args.lstlen):
 		checkdir.chk_os()
-		if checkdir.chk_os() == (1 or 2):
+		if (checkdir.chk_os() == 1 or 2):
 			banners.help_sb()
 		elif checkdir.chk_os() == 3:
 			from colorama import just_fix_windows_console
