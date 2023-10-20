@@ -555,11 +555,11 @@ if __name__ == '__main__':
 		if not checkdir.chk_os() == 3:
 			Tfg = ''
 			hex_start = '\033[38:5:208m'
-			hex_end =  '\033[0;0m\n[0;0m'
+			hex_end =  '\033[0;0m\n'
 			banners.help_sb()
 		elif os.name == 'nt':
 			from colorama import just_fix_windows_console
-			Tfg = Fore.RED
+			Tfg = Fore.RED + Style.BRIGHT
 			hex_start = ''
 			hex_end = ''
 			just_fix_windows_console()
@@ -576,26 +576,27 @@ if __name__ == '__main__':
 			if checkdir.chk_os() == 1:
 				checkdir.chkdir(chk_path)
 				checkdir.mkdir(path)
-				strgen = strgen(choice=args.chr or 
-				args.nmb or 
-				args.sp or 
-				args.chnmb or 
-				args.chS or 
-				args.nmS or 
-				args.cns, 
-				strlen=args.strlen, 
-				lstlen=args.lstlen)
+				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+				Tfg = ''
+				hex_start = '\033[38:5:208m'
+				hex_end =  '\033[0;0m\n'
 				strgen.spitrun()
 			# if it's 2 root, posix
 			elif checkdir.chk_os() == 2:
 				checkdir.sudo_chkdir(r_chkpath)
 				checkdir.sudo_mkdir(r_path)
 				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+				Tfg = ''
+				hex_start = '\033[38:5:208m'
+				hex_end =  '\033[0;0m\n'
 				strgen.sudo_spitrun()
 			# if it's 3 Windows
 			elif checkdir.chk_os() == 3:
 				from colorama import just_fix_windows_console
 				just_fix_windows_console()
+				Tfg = Fore.RED
+				hex_start = ''
+				hex_end = ''
 				checkdir.win_chkdir(win_chkpath)
 				checkdir.win_mkdir(winpath)
 				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
