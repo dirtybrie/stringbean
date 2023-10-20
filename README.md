@@ -4,8 +4,8 @@ A simple random string generator
 
 > stringBEAN is a python3 script<br/>
 > Compatable with any version after python3.4<br/>
-> Confirmed for POSIX-compliant OS and NTFS (Linux/Mac, Windows)<br/>
-> Confirmed for iSH as well
+> works for POSIX-compliant OS and NTFS (Linux/Mac, Windows)<br/>
+> confirmed, works for iSH and Termux
 
 > [!IMPORTANT]
 > 1. The output for this script on windows is exponentially slower than linux. Just be mindful when you
@@ -15,7 +15,6 @@ A simple random string generator
 > gnu/linux is based off of unix, Not to be construed as the same but the commands are similar
 > and files are structured the same way. So there shouldn't be an issue as long as you have any version after python3.4 intalled on your Mac.<br/>
 > Just follow the same instructions for Linux below.
-> stringBEAN can run on iSH and Termux
 
 ### QUICK UPDATES
 >10/19/23
