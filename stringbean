@@ -132,7 +132,7 @@ class banners():
 |<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<|
 |####################################|
 
-		{hext_end}''')
+		{hex_end}''')
 		print(Style.RESET_ALL)
 	
 	def help_sb(self):
