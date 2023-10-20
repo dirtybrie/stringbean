@@ -593,7 +593,13 @@ if __name__ == '__main__':
 			elif checkdir.chk_os() == 2:
 				checkdir.sudo_chkdir(r_chkpath)
 				checkdir.sudo_mkdir(r_path)
-				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+				strgen = strgen(choice=args.chr or 
+				args.nmb or 
+				args.sp or 
+				args.chnmb or 
+				args.chS or 
+				args.nmS or 
+				args.cns, strlen=args.strlen, lstlen=args.lstlen)
 				Tfg = ''
 				hex_st = '\033[38:5:208m'
 				hex_end = '\033[0;0m\n'
@@ -604,7 +610,13 @@ if __name__ == '__main__':
 				just_fix_windows_console()
 				checkdir.win_chkdir(win_chkpath)
 				checkdir.win_mkdir(winpath)
-				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
+				strgen = strgen(choice=args.chr or 
+				args.nmb or 
+				args.sp or 
+				args.chnmb or 
+				args.chS or 
+				args.nmS or 
+				args.cns, strlen=args.strlen, lstlen=args.lstlen)
 				Tfg = Fore.RED + Style.BRIGHT
 				hex_st = ''
 				hex_end = ''
