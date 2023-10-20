@@ -4,8 +4,8 @@ A simple random string generator
 
 > stringBEAN is a python3 script<br/>
 > Compatable with any version after python3.4<br/>
-> works for POSIX-compliant OS and NTFS (Linux/Mac, Windows)<br/>
-> confirmed, works for iSH and Termux
+> [confirmed] works for POSIX-compliant OS and NTFS (Linux/Mac, Windows)<br/>
+> [confirmed] works for iSH and Termux
 
 > [!IMPORTANT]
 > 1. The output for this script on windows is exponentially slower than linux. Just be mindful when you
