@@ -68,7 +68,7 @@ For linux you can also copy/cut paste it to your bin folder and it will run fine
 * The second argument is the length of the text.
 * The third argument is how many lines per text file.
 * stringbean detects your OS then prompts you to name the file containing the texts,
-* then it will create a directory in Documents called 'stringbean' and puts your file there.
+* then it will create a directory in Documents called 'stringBEAN' and puts your file there.
 > [!NOTE]
 > __If your root files will be exported to the /opt directory instead__
 ```
@@ -111,11 +111,16 @@ strings to a file with a string combination, text length and line limit of your 
 > directory but the same thing above applies just make one or edit the script.
 
 > [!NOTE]
-> Just FYI the file stringbean writes to is in append mode so as long
+> Just FYI the file stringBEAN writes to is in append mode so as long
 > as the name you give the .txt file remains the same and is in the
-> stringbean directory.
-> stringbean won't overwrite but instead append to it.
+> stringBEAN directory.
+> stringBEAN won't overwrite but instead append to it.<br/>
 > DO NOT CHANGE IT TO OVERWRITE MODE("w+")
+>
+> I know telling you NOT to do something just makes you want to do it even more<br/>
+> however if it's in overwrite it will keep overwriting the file it puts the strings in,<br/>
+> meaning the end result is just one line of text.
+> 
 > -db
 
 > Tips for me on better programming? Contact me ;)
