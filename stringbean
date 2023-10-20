@@ -41,7 +41,7 @@ def inet_chk():
 # colorama is not a builtin module so if the user doesn't have this Auto Install choice will execute and check if their online
 # for pip to proceed in installing colorama.
 try:
-	from colorama import Fore, Style, just_fix_windows_console
+	from colorama import Fore, Style
 except ImportError:
 	print("\n [IMPORTANT!]\n You don't have the colorama module\n stringBEAN has an auto install feature for colorama\n make sure you have an internet concection before you enter 'y'\n")
 	time.sleep(2.33)
@@ -57,7 +57,7 @@ except ImportError:
 			try:
 				import subprocess
 				subprocess.check_call([sys.executable,'-m', 'pip', 'install', '-q', 'colorama'])
-				from colorama import Fore, Style, just_fix_windows_console
+				from colorama import Fore, Style
 			except (ModuleNotFoundError, ImportError):
 				("Import Error: just run [python -m pip install colorama]")
 				sys.exit(1)
@@ -432,9 +432,10 @@ class strgen(object):
 
 	# Final output for windows user
 	def win_spitrun(self):
+		from colorama import just_fix_windows_console
 		just_fix_windows_console()
-		print("WARNING: Windows python performance is drasticly slower than using linux\n")
-		print("Any thing above 5,000 lines will take a while\n")
+		print("\nWARNING: Windows python performance is drasticly slower than using linux")
+		print("Just be mindful that anything above 5,000 lines will take a WHILE!\n")
 		if args.chr and args.strlen < str_limit and args.lstlen < winlst_limit:
 			count = 0
 			filename = input("name the file: ")
@@ -547,17 +548,23 @@ if __name__ == '__main__':
 	parser.add_argument("lstlen", metavar="3rd integer", help="List Length/Lines", type=int, default=0, nargs="?")
 	args = parser.parse_args()
 	banners = banners()
+	checkdir = checkdir()
 	
 	# If niether length and list integers or given display the help banner
 	if not (args.strlen and args.lstlen):
-		just_fix_windows_console()
-		banners.help_sb()
+		checkdir.chk_os()
+		if checkdir.chk_os() == (1 or 2):
+			banners.help_sb()
+		elif checkdir.chk_os() == 3:
+			from colorama import just_fix_windows_console
+			just_fix_windows_console()
+			banners.help_sb()
+		
 	elif (args.strlen and args.lstlen) and not (args.chr or args.nmb or args.sp or args.chnmb or args.chS or args.nmS or args.cns): 
 		print("\nstringBEAN: You need To specify an option first, then 2 integers silly!.")
 	else:
 		# Try running these functions (Described above)
 		try:
-			checkdir = checkdir()
 			checkdir.chk_os()
 			# Our exceptions are relying on return values if its 1 non-root, posix
 			if checkdir.chk_os() == 1:
@@ -581,6 +588,8 @@ if __name__ == '__main__':
 				strgen.sudo_spitrun()
 			# if it's 3 Windows
 			elif checkdir.chk_os() == 3:
+				from colorama import just_fix_windows_console
+				just_fix_windows_console()
 				checkdir.win_chkdir(win_chkpath)
 				checkdir.win_mkdir(winpath)
 				strgen = strgen(strlen=args.strlen, lstlen=args.lstlen)
