@@ -565,7 +565,6 @@ if __name__ == '__main__':
 			from colorama import just_fix_windows_console
 			just_fix_windows_console()
 			banners.help_sb()
-			print("test")
 		
 	elif (args.strlen and args.lstlen) and not (args.chr or args.nmb or args.sp or args.chnmb or args.chS or args.nmS or args.cns): 
 		print("\nstringBEAN: You need To specify an option first, then 2 integers silly!.")
