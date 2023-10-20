@@ -111,8 +111,8 @@ class banners():
 		pass
 
 	def str_machine(self):
-		print(Tfg + f'''{hex_st}
-|####################################|
+		print(Tfg + f'''{hex_a[0]}
+|[###################################|
 |>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|
 |######             .         ##### #|
 |# #####           n           ######|
@@ -132,33 +132,33 @@ class banners():
 |<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<|
 |####################################|
 
-		{hex_end}''')
+		{hex_a[3]}''')
 		print(Style.RESET_ALL)
 	
 	def help_sb(self):
-		print(Tfg + f'''{hex_st}
-___________________________________________________________________________
-hXXXXXXXXXXXXXXXxxxXXXX      stringBEAN v2.0     XxXXXXXXXXXXXXXXXXXXXXXXX0
-  CXxXXXxxxxxXXXXXXxx      Copyright (C) 2023       xxXXXXXXXXXXXXXXXXXXF
-     8XXXXXXXXXXXXXxxxxXX    by dirty brie   XXXXXxxXXXXXXXXXXXXXXXX#
-            @XXXXXXXXXXXXXXXX     x x     xxXXXXXXXXXXXXXXX2
-                                 `.X.
-____________________________________________________________
--c          | Characters (Upper & Lower case)
--n          | Numbers
--s          | Special Characters
--cn         | Characters + Numbers
--cs         | Characters + Special Characters
--ns         | Numbers + Special Characrers              
--cns        | Characters + Numbers + Special Characters 
-____________|___________________________________________
-                                      ######  X       X
-ex: stringbean -cn 8 12000  	       ####### xxxxxxx
-                   |   |                ###############
-Length of Text-----'   |              ###############	
-Lines per File---------'            #############
+		print(Tfg + f'''{hex_a[0]}
 ___________________________________________________________
-		{hex_end}''')
+Xx {hex_a[1]}{hex_a[2]}string{hex_a[0]}BEAN{hex_a[3]}{hex_a[0]} V.7 XxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!
+XXXXxx  Copyright (C) 2023  xxXXXXXXXXXXXF
+XXXXXxXX  {hex_a[2]}by dirty brie{hex_a[0]}  XXXXXxxXXXXXXXXXXXXx
+XX     x x     xxXXXXXxxXxXX2
+XxxX  `.X.  XXxxxXXXX
+______________________________________________
+-c     | Characters (Upper & Lower case)
+-n     | Numbers
+-s     | Special Characters
+-cn    | Characters + Numbers
+-cs    | Characters + Special Characters
+-ns    | Numbers + Special Characrers              
+-cns   | Characters + Numbers + Special Characters 
+_______|___________________________________________
+                                 ######  X     x
+ex: stringbean -cn 8 12000  	  ####### xxxxx
+                   |   |           ###############
+Length of Text-----'   |         ###############	
+Lines per File---------'       #############
+______________________________________
+		{hex_a[0]}''')
 		print(Style.RESET_ALL)
 
 # Our generator, curtosy of python's 'random' module
@@ -555,13 +555,11 @@ if __name__ == '__main__':
 		checkdir.chk_os()
 		if checkdir.chk_os() != 3:
 			Tfg = ''
-			hex_st = '\033[38:5:208m'
-			hex_end = '\033[0;0m\n'
+			hex_a = ['\033[38:5:208m','\033[48;5;236m', '\033[38;5;72m','\033[0:0m']
 			banners.help_sb()
 		elif checkdir.chk_os() == 3:
 			Tfg = Fore.RED + Style.BRIGHT
-			hex_st = ''
-			hex_end = ''
+			hex_st = ['','','','']
 			from colorama import just_fix_windows_console
 			just_fix_windows_console()
 			banners.help_sb()
@@ -586,8 +584,7 @@ if __name__ == '__main__':
 				strlen=args.strlen, 
 				lstlen=args.lstlen)
 				Tfg = ''
-				hex_st = '\033[38:5:208m'
-				hex_end = '\033[0;0m\n'
+				hex_a = ['\033[38:5:208m','\033[48;5;236m', '\033[38;5;72m','\033[0:0m']
 				strgen.spitrun()
 			# if it's 2 root, posix
 			elif checkdir.chk_os() == 2:
@@ -601,8 +598,7 @@ if __name__ == '__main__':
 				args.nmS or 
 				args.cns, strlen=args.strlen, lstlen=args.lstlen)
 				Tfg = ''
-				hex_st = '\033[38:5:208m'
-				hex_end = '\033[0;0m\n'
+				hex_a = ['\033[38:5:208m','\033[48;5;236m','\033[38;5;72m','\033[0:0m']
 				strgen.sudo_spitrun()
 			# if it's 3 Windows
 			elif checkdir.chk_os() == 3:
@@ -618,8 +614,7 @@ if __name__ == '__main__':
 				args.nmS or 
 				args.cns, strlen=args.strlen, lstlen=args.lstlen)
 				Tfg = Fore.RED + Style.BRIGHT
-				hex_st = ''
-				hex_end = ''
+				hex_a = ['','','','']
 				strgen.win_spitrun()
 		except KeyboardInterrupt:
 			print("\n\nQUITTING ;)")
