@@ -1,9 +1,8 @@
-# stringbean
 ![stringbean.png](https://github.com/dirtybrie/stringbean/blob/%7Bdirt%7D/img/stringbean.png)
 <!--?raw=true-->
 A simple random string generator
 
-> stringbean is a python3 script<br/>
+> stringBEAN is a python3 script<br/>
 > Compatable with any version after python3.4<br/>
 > Works for POSIX-compliant OS and NTFS (Linux/Mac, Windows)<br/>
 
@@ -15,6 +14,17 @@ A simple random string generator
 > gnu/linux is based off of unix, Not to be construed as the same but the commands are similar
 > and files are structured the same way. So there shouldn't be an issue as long as you have any version after python3.4 intalled on your Mac.<br/>
 > Just follow the same instructions for Linux below.
+
+### QUICK UPDATES
+>10/19/23
+
+stringBEAN has options now!!! It also uses the colorama module for text color
+I put in an auto-install feature for colorama if you do not have it
+to skip the auto-intall feautre simply execute the code below:
+
+```
+python -m pip install colorama
+```
 
 ### COMPATABILITY CHECK
 
@@ -52,17 +62,30 @@ py stringbean
 For linux you can also copy/cut paste it to your bin folder and it will run fine :)
  
 ### COMMANDS
-* __You have to give give it 2 arguments and they must be integers__.
-* The first argument is the length of the text.
-* The second argument is how many lines per text file.
+* __You have to give give it 3 arguments the 1st is an option, 2nd and 3rd must be integers__.
+* The first argument is an option(i.e. -c, -cn, -cns), the option specifies wether your texts will 
+  have numbers, characters+numbers, number+special characters etc.. 
+* The second argument is the length of the text.
+* The third argument is how many lines per text file.
 * stringbean detects your OS then prompts you to name the file containing the texts,
 * then it will create a directory in Documents called 'stringbean' and puts your file there.
 > [!NOTE]
 > __If your root files will be exported to the /opt directory instead__
 ```
-| cmd                | descriton                                                |
-| stringbean 8 10000 | generate a random text with the length of 8, 10000 times |
-| stringbean 13 300  | generate a random text with the lengtrh of 13, 300 times |
+OPTION:   DESCRIPTION:
+-c       | Characters Only
+-n       | Numbers Only
+-s       | Special Characters Only
+-cn      | Characters + Numbers
+-cs      | Characters + Special Characters
+-ns      | Numbers + Special CHaracters
+-cns     | Characters + Numbers + Special Characters
+
+ex: stringbean -cn 8 10000
+                   |   |
+length of text-----'   |
+lines per file---------'
+
 ```
 ## Description
 
@@ -79,9 +102,7 @@ ATT-WIFI-aX4D chances are they kept the password since they didn't bother
 changing the ESSID.
  
 This program will generate randome strings/texts over and over and append those
-strings to a file with a text length and line limit of your chosing.
-The strings by default consist of upper-lowercase characters and numbers only.
-(Since thats how most hotspots generate their passwords)
+strings to a file with a string combination, text length and line limit of your chosing.
 
 > [!WARNING]
 > If for some reason you do not have the Documents folder in your username directory
@@ -97,29 +118,6 @@ The strings by default consist of upper-lowercase characters and numbers only.
 > DO NOT CHANGE IT TO OVERWRITE MODE("w+")
 > -db
 
-## Manipulating The Script
-
-Very doable, any script can be manipulated. getting it to work is another thing.<br/>
-Fortunately this is a very basic script and I made it even easier for manipulation.</br>
-Go head and pull up the code of stringbean while your reading.
-
-Ok so our variables between line 23-41 is commented as the 'ASCII Table'.
-If you don't know what ASCII is, it's just a fancy way of saying letters, numbers and punctuation.
-Say you want more than just uppercase/lowercase letters and numbers
-you want to throw in special characters as well. To do so, you would
-swap **charnumb** in lines 162(user) & for 178(root) if your using Linux, line 195 for Windows which is:<br/>
-```
-stringbean = random_string_generator(args.strlen, charnumb)<br/>
-```
-with the variable **cns**:<br/>
-```
-stringbean = random_string_generator(args.strlen, cns)<br/>
-```
-If you just want numbers you'd swap it with numb, etc, etc...<br/>
-
-You can also alter the limit for text length and lines in a file
-by changing the values of the str_limit and lst_limit.
-
 > Tips for me on better programming? Contact me ;)
 
 __UPDATES__<br/>
@@ -127,5 +125,6 @@ __UPDATES__<br/>
 <sup>
 10/16/23 OS detection<br/>
 10/17/23 root detection<br/>
+10/19/23 options for argv[1]
 </sup>
 
