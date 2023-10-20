@@ -127,8 +127,9 @@ strings to a file with a string combination, text length and line limit of your 
 ## QUICK DISCLAIMER:
 
 > [!WARNING]
-> I do not encourage anyone to use this as ammunition for a dictionary attack on networks you DO NOT HAVE ACCESS TO or DO NOT HAVE PERMISSION BY THE OWNER TO DO SO.<br/>
-It's for educational purpose only kiddo's.
+> I do not encourage anyone to use this as ammunition for a dictionary attack on networks you<br/>
+> DO NOT HAVE ACCESS TO or DO NOT HAVE PERMISSION BY THE OWNER TO DO SO.<br/>
+> It's for educational purpose only kiddo's.
 
 Plus as I stated earlier about our odds your hitting a random generated text with a list of random generated texts so your odds are pathetic unless your a firm believer in the chaos theory.<br/>
 However effective it may be ;)
