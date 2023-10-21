@@ -45,24 +45,30 @@ def inet_chk():
 # for pip to proceed in installing colorama.
 try:
 	from colorama import Fore, Style
+	
 except ImportError:
-	print("\n [IMPORTANT!]\n You don't have the colorama module\n stringBEAN has an auto install feature for colorama\n make sure you have an internet concection before you enter 'y'\n")
+	print("\n [IMPORTANT!]\n You need the 'colorama' module for this program\n make sure you have an internet concection before you enter 'y'\n")
 	sleep(1.8)
+	
 	try:
 		user_choice = input(" Attempt to Auto-Install Colorama? [y/N] ")
+		
 	except KeyboardInterrupt:
 		print ("\nbyeeeeee. (KeyboardInterrupt)")
 		sys.exit(1)
+		
 	if user_choice.strip().lower() == 'y':
 		if inet_chk():
-			print("Attempting to Install colorama")
+			print("Attempting to Install module: 'colorama'")
 			sys.stdout.flush()
+			
 			try:
 				import subprocess
 				subprocess.check_call([sys.executable,'-m', 'pip', 'install', '-q', 'colorama'])
 				from colorama import Fore, Style
+				
 			except (ModuleNotFoundError, ImportError):
-				("Import Error: just run [python -m pip install colorama]")
+				("Import Error: just run [pip install colorama && pip install ]")
 				sys.exit(1)
 		else:
 			print("\n since you obviously didn't read the message above")
@@ -77,10 +83,10 @@ except ImportError:
 	else:
 		print("\n INVALID OPTION: its either 'y' or 'n'")
 		sys.exit(1)
-
+		
 	print("\n stringBEAN: Your All Set ;)")
 
-# Varibles for directory paths and username
+# Varibles for directory paths
 user = getuser()
 path = f"/home/{user}/Documents/stringBEAN"
 chk_path = f"/home/{user}/Documents"
@@ -164,7 +170,7 @@ Lines per File---------'    #############
 ________________________________________
 LIMITS:
 Length of Text: 500
-lines/File: 800,000/50,000 (lin-mac/Win)
+lines/File: 800,000/50,000 (lin-mac/win)
 ______________________________________________
 		''')
 		print(Style.RESET_ALL)
@@ -248,14 +254,18 @@ class strgen(object):
 	# Our new and imporoved loader that actually doesnt load anything lol
 	def loadr(self):
 		for c in cycle([Fore.RED + Style.BRIGHT + 'Working...','w0rking...','woRking...', 'worKing...', 'workIng...', 'workiNg...', 'workinG...', 'working...', 'working...','working...']):
-			if count == args.lstlen:
+			if count == args.lstlen or '':
 				break
 			sys.stdout.write('\r' + c)
 			sys.stdout.flush()
-			sleep(0.2)
-		sys.stdout.write('\rDONE!      ')
-		print(Style.RESET_ALL)
-
+			sleep(0.3)
+		if vl_ret == 1:
+			sys.stdout.write('\r')
+			print(Style.RESET_ALL)
+		else:
+			sys.stdout.write('\rDONE!            ')
+			print(Style.RESET_ALL)
+		
 	# The reason I'm being repitive like this is because nesting functions
 	# within functions, using return and arg tricks and the like does't beat
 	# the performance of simpler code.
@@ -274,7 +284,7 @@ class strgen(object):
 				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
@@ -288,7 +298,7 @@ class strgen(object):
 				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			
@@ -302,7 +312,7 @@ class strgen(object):
 				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 		
@@ -317,7 +327,7 @@ class strgen(object):
 				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 		
@@ -347,7 +357,7 @@ class strgen(object):
 				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 		
@@ -362,7 +372,7 @@ class strgen(object):
 				with open(f"/home/{user}/Documents/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /home/{user}/Documents/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			
@@ -383,7 +393,7 @@ class strgen(object):
 				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			
@@ -396,7 +406,7 @@ class strgen(object):
 				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
@@ -409,7 +419,7 @@ class strgen(object):
 				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
@@ -422,7 +432,7 @@ class strgen(object):
 				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			
@@ -435,7 +445,7 @@ class strgen(object):
 				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			
@@ -448,7 +458,7 @@ class strgen(object):
 				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			
@@ -462,7 +472,7 @@ class strgen(object):
 				with open(f"/opt/stringBEAN/{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: /opt/stringBEAN/{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			
@@ -473,12 +483,11 @@ class strgen(object):
 	def win_spitrun(self):
 		from colorama import just_fix_windows_console
 		just_fix_windows_console()
-		global count
-		count = 0
 		print("\nWARNING: Windows python performance is drasticly slower than using linux")
 		print("Just be mindful that anything above 5,000 lines will take a WHILE!\n")
 		t = Thread(target=self.loadr)
 		if args.chr and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -487,11 +496,12 @@ class strgen(object):
 				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			
 		elif args.nmb and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -500,11 +510,12 @@ class strgen(object):
 				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
 		elif args.sp and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -513,11 +524,12 @@ class strgen(object):
 				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
 		elif args.chnmb and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -526,11 +538,12 @@ class strgen(object):
 				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
 		elif args.chS and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -539,11 +552,12 @@ class strgen(object):
 				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
 		elif args.nmS and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -552,11 +566,12 @@ class strgen(object):
 				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
 		elif args.cns and args.strlen < str_limit and args.lstlen < winlst_limit:
+			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -565,7 +580,7 @@ class strgen(object):
 				with open(f"C:\\Users\\{user}\\Documents\\stringBEAN\\{filename}.txt", "a+") as text_file:
 					text_file.write(output)
 				count += 1
-			sleep(0.2)
+			sleep(0.3)
 			banners.str_machine()
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
@@ -598,6 +613,7 @@ if __name__ == '__main__':
 	args = AP.parse_args()
 	banners = banners()
 	checkdir = checkdir()
+	vl_ret = 0
 	
 	# If niether length and list integers or given display the help banner
 	if not (args.strlen and args.lstlen):
@@ -606,9 +622,10 @@ if __name__ == '__main__':
 			Tfg = ''
 			hex_a = ['\033[38:5:208m','\033[48;5;236m', '\033[38;5;72m','\033[0:0m']
 			banners.help_sb()
+			
 		elif checkdir.chk_os() == 3:
 			Tfg = Fore.RED + Style.BRIGHT
-			hex_a = ['','','','']
+			hex_st = ['','','','']
 			from colorama import just_fix_windows_console
 			just_fix_windows_console()
 			banners.help_sb()
@@ -670,6 +687,8 @@ if __name__ == '__main__':
 				strgen.win_spitrun()
 
 		except KeyboardInterrupt:
+			args.lstlen = count
+			vl_ret = 1
 			print("\n\nQUITTING!")
 			sys.exit(1)
 		    
