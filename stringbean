@@ -473,11 +473,12 @@ class strgen(object):
 	def win_spitrun(self):
 		from colorama import just_fix_windows_console
 		just_fix_windows_console()
+		global count
+		count = 0
 		print("\nWARNING: Windows python performance is drasticly slower than using linux")
 		print("Just be mindful that anything above 5,000 lines will take a WHILE!\n")
 		t = Thread(target=self.loadr)
 		if args.chr and args.strlen < str_limit and args.lstlen < winlst_limit:
-			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -491,7 +492,6 @@ class strgen(object):
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 			
 		elif args.nmb and args.strlen < str_limit and args.lstlen < winlst_limit:
-			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -505,7 +505,6 @@ class strgen(object):
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
 		elif args.sp and args.strlen < str_limit and args.lstlen < winlst_limit:
-			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -519,7 +518,6 @@ class strgen(object):
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
 		elif args.chnmb and args.strlen < str_limit and args.lstlen < winlst_limit:
-			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -533,7 +531,6 @@ class strgen(object):
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
 		elif args.chS and args.strlen < str_limit and args.lstlen < winlst_limit:
-			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -547,7 +544,6 @@ class strgen(object):
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
 		elif args.nmS and args.strlen < str_limit and args.lstlen < winlst_limit:
-			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -561,7 +557,6 @@ class strgen(object):
 			print(f"OUTPUT: C:\\Users\\{user}\\stringBEAN\\{filename}.txt with", args.strlen, "text length and", args.lstlen, "lines")
 
 		elif args.cns and args.strlen < str_limit and args.lstlen < winlst_limit:
-			count = 0
 			filename = input("name the file: ")
 			t.start()
 			while count != args.lstlen:
@@ -613,7 +608,7 @@ if __name__ == '__main__':
 			banners.help_sb()
 		elif checkdir.chk_os() == 3:
 			Tfg = Fore.RED + Style.BRIGHT
-			hex_st = ['','','','']
+			hex_a = ['','','','']
 			from colorama import just_fix_windows_console
 			just_fix_windows_console()
 			banners.help_sb()
