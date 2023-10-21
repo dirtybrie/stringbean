@@ -164,7 +164,7 @@ Lines per File---------'    #############
 ________________________________________
 LIMITS:
 Length of Text: 500
-Lines/File: lin-mac/win: 800,000/50,000
+lines/File: 800,000/50,000 (lin-mac/Win)
 ______________________________________________
 		''')
 		print(Style.RESET_ALL)
