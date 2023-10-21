@@ -80,7 +80,7 @@ except ImportError:
 
 	print("\n stringBEAN: Your All Set ;)")
 
-# Varibles for directory paths
+# Varibles for directory paths and username
 user = getuser()
 path = f"/home/{user}/Documents/stringBEAN"
 chk_path = f"/home/{user}/Documents"
