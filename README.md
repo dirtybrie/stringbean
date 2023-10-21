@@ -4,28 +4,35 @@ A simple random string generator
 
 > stringBEAN is a python3 script<br/>
 > Compatable with any version after python3.4<br/>
-> [confirmed] works for POSIX-compliant OS and NTFS (Linux/Mac, Windows)<br/>
+> [confirmed] works for POSIX-compliant OS and NTFS (Linux/Mac and Windows)<br/>
 > [confirmed] works for iSH and Termux
 
 > [!IMPORTANT]
 > 1. The output for this script on windows is exponentially slower than linux. Just be mindful when you
 > want to generate anything above 5000 lines. If your using linux it will spit out a 200,000 lines in a file like nothing.<br/>
+>
 > 2. I have not tested stringbean on a Mac yet, however macOS's core is a
 > POSIX-compliant operating system so the exceptions in this code should still follow through.
 > gnu/linux is based off of unix, Not to be construed as the same but the commands are similar
 > and files are structured the same way. So there shouldn't be an issue as long as you have any version after python3.4 intalled on your Mac.<br/>
 > Just follow the same instructions for Linux below.
 
+
 ### QUICK UPDATES
 >10/19/23
 
-stringBEAN has options now!!!<br/> It also uses the colorama module for text color
-I put in an auto-install feature for colorama if you do not have it<br/>
+stringBEAN has options now!<br/> It also uses the colorama module for text color.
+Since colorama isn't a builtin module I put in an auto-install feature for colorama if you do not have it<br/>
 to skip the auto-intall feautre simply execute the code below:
 
 ```
 python -m pip install colorama
 ```
+>10/20/23
+
+Tidied up the script, Changed the banners a bit and added a
+loader for final output. The limits for text length is now 500,
+lines/file is 800,000 for posix-complient OS's. For windows, it's still 50,000
 
 ### COMPATABILITY CHECK
 
@@ -90,6 +97,10 @@ ex: stringbean -cn 8 10000
 length of text-----'   |
 lines per file---------'
 
+LIMITS:
+length of Text = 500
+lines/File = 800,000/50,000 (Linux-macOS/Windows)
+
 ```
 ## Description
 
@@ -135,8 +146,8 @@ strings to a file with a string combination, text length and line limit of your 
 > DO NOT HAVE ACCESS TO or DO NOT HAVE PERMISSION BY THE OWNER TO DO SO.<br/>
 > It's for educational purpose only kiddo's.
 
-Plus as I stated earlier about our odds your hitting a random generated text with a list of random generated texts so your odds are pathetic unless your a firm believer in the chaos theory.<br/>
-However effective it may be ;)
+Plus as I stated earlier about our odds, your hitting a random generated text with a list of random generated texts so your odds are pathetic (unless your a firm believer in the chaos theory)<br/>
+However effective it may be. ;)
 
 > Tips for me on better programming? Contact me ;)
 
@@ -145,6 +156,7 @@ __UPDATES__<br/>
 <sup>
 10/16/23 OS detection<br/>
 10/17/23 root detection<br/>
-10/19/23 options for argv[1]
+10/19/23 options for argv[1]<br/>
+10/20/23 working... bar added; minor banner changes; limits extended for posix complient OS
 </sup>
 
