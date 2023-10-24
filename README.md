@@ -19,20 +19,16 @@ A simple random string generator
 
 
 ### QUICK UPDATES
->10/19/23
 
-stringBEAN has options now!<br/> It also uses the colorama module for text color.
-Since colorama isn't a builtin module I put in an auto-install feature for colorama if you do not have it<br/>
-to skip the auto-intall feautre simply execute the code below:
-
-```
-python -m pip install colorama
-```
 >10/20/23
 
 Tidied up the script, Changed the banners a bit and added a
 loader for final output. The limits for text length is now 500,
 lines/file is 800,000 for posix-complient OS's. For windows, it's still 50,000
+
+>10/24/23
+
+.exe format available for Windows (stringBEANexe.zip)
 
 ### COMPATABILITY CHECK
 
@@ -66,12 +62,25 @@ python stringbean
 For linux you can also copy/cut paste it to your bin folder and it will run fine :)
 
 __WINDOWS__
+You can either download the stringBEANexe.zip folder or the script
+
+IF you download the .zip folder you dont need python just make sure cmd or<br/>
+powershell is in the same directory as stringbean.exe the just run:
+```
+cmd:
+stringbean
+PS:
+.\stringbean 
+```
+If your using the script: (which is a good habit,<br/>
+at least you can see the source code of what your running.)
 ```
 py stringbean
 ```
-if you download stringbean file make sure to take out the .txt on the end!<br/>
+if you download the stringbean file make sure to take out the 
+.txt on the end! or replace .txt with .py, it's up to you<br/>
 if your using git just ignore this warning
- 
+
 ### COMMANDS
 * __You have to give give it 3 arguments the 1st is an option, 2nd and 3rd must be integers__.
 * The first argument is an option(i.e. -c, -cn, -cns), the option specifies wether your texts will 
@@ -157,6 +166,7 @@ __UPDATES__<br/>
 10/16/23 OS detection<br/>
 10/17/23 root detection<br/>
 10/19/23 options for argv[1]<br/>
-10/20/23 working... bar added; minor banner changes; limits extended for posix complient OS
+10/20/23 worRking... bar added; minor banner changes; limits extended for posix complient OS.
+10/24/23 .zip added containing stringbean.exe for Windows.
 </sup>
 
