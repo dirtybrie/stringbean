@@ -41,8 +41,8 @@ def inet_chk():
 	finally:
 		sock.close()
 
-# colorama is not a builtin module so if the user doesn't have this Auto Install choice will execute and check if their online
-# for pip to proceed in installing colorama.
+# colorama is not a builtin module so if the user doesn't have it, they will be given a choice for Auto Install.
+# It checks if their online for pip to proceed in installing colorama.
 try:
 	from colorama import Fore, Style
 	
