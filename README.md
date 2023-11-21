@@ -62,6 +62,7 @@ python stringbean
 For linux you can also copy/cut paste it to your bin folder and it will run fine :)
 
 __WINDOWS__
+
 You can either download the stringBEANexe.zip folder or the script
 
 IF you download the .zip folder you dont need python just make sure cmd or<br/>
